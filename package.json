@@ -12,7 +12,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/*": ["eslint --fix", "prettier --write --ignore-unknown"]
+    "src/*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
@@ -40,6 +43,7 @@
     "prettier-eslint": "^16.1.2",
     "sass": "^1.69.5",
     "typescript": "^5.0.2",
+    "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^4.4.5"
   }
 }

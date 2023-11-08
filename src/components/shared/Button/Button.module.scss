@@ -1,0 +1,45 @@
+.small {
+  padding: 11px 24px;
+}
+
+.big {
+  padding: 11px 36px;
+}
+
+.button {
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.primary {
+  @extend .button;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg)
+  }
+}
+
+.secondary {
+  @extend .button;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.transparent {
+  @extend .button;
+  background-color: transparent;
+  color: var(--color-primary);
+  &:hover {
+    background-color: var(--color-accent);
+  }
+}

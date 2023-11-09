@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button } from "../../components/shared/Button/Button";
 import { logger } from "../../utils/logger";
-import { ThemeSelector } from "../../components/Theme/ThemeSelector";
+import { ThemeSelector } from "../../components/ThemeSelector/ThemeSelector";
 
 export const HomePage: FC = () => {
   return (

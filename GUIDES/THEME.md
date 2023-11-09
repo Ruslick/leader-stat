@@ -17,4 +17,6 @@
     background-color: var(--color-primary);
     color: var(--color-bg)
   }
-}
+
+
+Если нужна переменная с текущей темой, то ее можно получить из хука useTheme.

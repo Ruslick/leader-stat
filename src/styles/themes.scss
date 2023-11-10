@@ -1,34 +1,32 @@
 :root {
+  // all- themes
+  --color-media: #150050;
+  --color-accent: #FF453B;
+
   // light-theme
-  --color-bg-light: #fff;
-  --color-accent-light: #FF453B;
-  --color-primary-light: #000;
+  --color-bg-light: #E2EBFA;
+  --color-text-light: #21262d;
 
   // dark-theme
-  --color-bg-dark: #000;
-  --color-accent-dark: #FF453B;
-  --color-primary-dark: #fff;
+  --color-bg-dark: #21262d;
+  --color-text-dark: #E2EBFA;
 
   // default-theme
   --color-bg-default: #001E6F;
-  --color-accent-default: #FF453B;
-  --color-primary-default: #FFF;
+  --color-text-default: #E2EBFA;
 }
 
 [data-theme='light'] {
   --color-bg: var(--color-bg-light);
-  --color-accent: var(--color-accent-light);
-  --color-primary: var(--color-primary-light);
+  --color-text: var(--color-text-light);
 }
 
 [data-theme='dark'] {
   --color-bg: var(--color-bg-dark);
-  --color-accent: var(--color-accent-dark);
-  --color-primary: var(--color-primary-dark);
+  --color-text: var(--color-text-dark);
 }
 
 [data-theme='default'] {
   --color-bg: var(--color-bg-default);
-  --color-accent: var(--color-accent-default);
-  --color-primary: var(--color-primary-default);
+  --color-text: var(--color-text-default);
 }

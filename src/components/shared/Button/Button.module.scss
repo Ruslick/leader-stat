@@ -1,45 +1,170 @@
-.small {
-  padding: 11px 24px;
-}
-
-.big {
-  padding: 11px 36px;
-}
-
 .button {
-  font-family: inherit;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s1);
+
+  cursor: pointer;
+
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
 
-  border-radius: 14px;
+
+  width: fit-content;
+
   border: none;
   outline: none;
   transition: all 0.5s ease;
+
+  &.smallText {
+    font-size: 14px;
+  }
+
+  &.normalText {
+    font-size: 18px;
+  }
+
+  &.noPadding {
+    padding: 0;
+  }
+
+  &.extraSmallPadding {
+    padding: var(--s3) var(--s4);
+  }
+
+  &.smallPadding {
+    padding: var(--s3) var(--s6);
+  }
+
+  &.normalPadding {
+    padding: var(--s3) var(--s8);
+  }
+
+  &.bigPadding {
+    padding: var(--s3) var(--s9);
+  }
+
 }
 
-.primary {
+.button-rounded {
   @extend .button;
+  border-radius: var(--fs1);
+}
+
+
+.primary {
+  @extend .button-rounded;
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-text);
+
   &:hover {
-    background-color: var(--color-primary);
-    color: var(--color-bg)
+    background-color: var(--color-text);
+    color: var(--color-bg);
   }
+
+  &.active {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+
 }
 
 .secondary {
-  @extend .button;
-  background-color: var(--color-primary);
+  @extend .button-rounded;
+  background-color: var(--color-text);
   color: var(--color-bg);
+
+  &:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  &.active {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
 }
 
 .transparent {
-  @extend .button;
+  @extend .button-rounded;
   background-color: transparent;
-  color: var(--color-primary);
+  color: var(--color-text);
+
   &:hover {
     background-color: var(--color-accent);
   }
+
+  &.active {
+    background-color: var(--color-accent);
+  }
+}
+
+.link {
+  @extend .button;
+  background-color: transparent;
+  color: var(--color-text);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+}
+
+.outline {
+  @extend .button-rounded;
+  font-weight: 600;
+  font-size: 14px;
+  font-style: normal;
+  padding: 8px 16px;
+  border-radius: var(--fs1);
+  transition: all 0.5s ease;
+
+  background-color: transparent;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+
+  &.active {
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+  }
+
+}
+
+.iconButton {
+  @extend .button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+
+
+
+}
+.mediaIconButton {
+  @extend .iconButton;
+
+
+  background-color: var(--color-text);
+  color: var(--color-bg);
+
+  &:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
+}
+
+.primaryIconButton {
+  @extend .iconButton;
+  background-color: transparent;
+  color: var(--color-text);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
 }

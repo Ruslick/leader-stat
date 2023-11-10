@@ -1,23 +1,40 @@
-import { FC, MouseEventHandler, ReactNode } from "react";
+import { FC, MouseEventHandler, ReactNode, memo } from "react";
+import classNames from "classnames";
 
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
   children: ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  variant?: "primary" | "secondary" | "transparent";
-  small?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  variant?: "primary" | "secondary" | "transparent" | "link" | "outline";
+  active?: boolean;
+  padding?: "no" | "extraSmall" | "small" | "normal" | "big";
+  textSize?: "small" | "normal";
+  icon?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  onClick,
-  variant = "primary",
-  small = false,
-}) => {
-  return (
-    <button className={`${styles[variant]} ${small ? styles.small : styles.big}`} onClick={onClick}>
-      {children}
-    </button>
-  );
-};
+export const Button: FC<ButtonProps> = memo(
+  ({
+    children,
+    onClick,
+    variant = "primary",
+    padding = "big",
+    textSize = "normal",
+    active,
+    icon,
+  }) => {
+    const className = classNames(
+      styles[variant],
+      styles[`${padding}Padding`],
+      styles[`${textSize}Text`],
+      { [styles.active]: active },
+    );
+
+    return (
+      <button className={className} onClick={onClick}>
+        {icon}
+        {children}
+      </button>
+    );
+  },
+);

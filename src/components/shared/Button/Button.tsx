@@ -11,6 +11,7 @@ interface ButtonProps {
   padding?: "no" | "extraSmall" | "small" | "normal" | "big";
   textSize?: "small" | "normal";
   icon?: ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button: FC<ButtonProps> = memo(
@@ -22,6 +23,7 @@ export const Button: FC<ButtonProps> = memo(
     textSize = "normal",
     active,
     icon,
+    type = "button",
   }) => {
     const className = classNames(
       styles[variant],
@@ -31,7 +33,7 @@ export const Button: FC<ButtonProps> = memo(
     );
 
     return (
-      <button className={className} onClick={onClick}>
+      <button type={type} className={className} onClick={onClick}>
         {icon}
         {children}
       </button>

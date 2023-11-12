@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { getThemeLocalStorage, setThemeLocalStorage } from "../../utils/themeController"
+import { getThemeLocalStorage, setThemeLocalStorage } from "../../utils/theme-controller"
 
 export const useInitTheme = () => {
   useEffect(() => {

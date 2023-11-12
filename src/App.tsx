@@ -7,6 +7,7 @@ import "./styles/reset.scss";
 import "./styles/index.scss";
 import "./styles/themes.scss";
 import "./styles/global-variables.scss";
+import "./styles/fonts.scss";
 
 function App() {
   useInitTheme();

@@ -1,0 +1,11 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.logoWrapper {
+  justify-self: center;
+}

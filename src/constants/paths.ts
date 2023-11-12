@@ -3,4 +3,6 @@ export const enum Paths {
   Login = "/login",
   Registration = "/registration",
   Kit = "/kit",
+  SingIn = "/singin",
+  SingUp = "/singup",
 }

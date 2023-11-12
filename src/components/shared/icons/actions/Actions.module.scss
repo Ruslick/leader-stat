@@ -1,0 +1,44 @@
+.eye {
+  fill: none;
+
+  & path {
+    transition: fill 0.5s ease;
+    fill: var(--color-text);
+  }
+
+  &.active {
+    & path {
+      fill: var(--color-accent);
+    }
+  }
+
+  &:hover {
+    & path {
+      fill: var(--color-accent);
+    }
+  }
+}
+
+.heart {
+  fill: none;
+
+  & path {
+    transition: fill 0.5s ease;
+    fill: var(--color-text);
+  }
+
+  &:hover {
+    & path {
+      fill: var(--color-accent);
+    }
+  }
+
+  &.active {
+    fill: var(--color-accent);
+
+    & path {
+      fill: var(--color-accent);
+    }
+  }
+
+}

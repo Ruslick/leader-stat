@@ -1,0 +1,19 @@
+:root {
+  --font-family: 'Open Sans', sans-serif;
+
+
+  --s1: 4px;
+  --s2: calc(var(--s1) * 2); // 8px
+  --s3: calc(var(--s1) * 3); // 12px
+  --s4: calc(var(--s1) * 4); // 16px
+  --s5: calc(var(--s1) * 5); // 20px
+  --s6: calc(var(--s1) * 6); // 24px
+  --s7: calc(var(--s1) * 7); // 28px
+  --s8: calc(var(--s1) * 8); // 32px
+  --s9: calc(var(--s1) * 9); // 36px
+  --s10: calc(var(--s1) * 10); // 40px
+
+  --fs1: 14px;
+  --fs2: calc(var(--fs1) * 1.618); // 21px
+  --fs3: calc(var(--fs2) * 1.618); // 28px
+}

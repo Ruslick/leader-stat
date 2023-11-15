@@ -4,6 +4,7 @@
   justify-content: center;
   gap: var(--s1);
 
+
   cursor: pointer;
 
   font-family: var(--font-family);
@@ -11,12 +12,15 @@
   font-weight: 600;
   line-height: 100%;
 
-
   width: fit-content;
-
   border: none;
   outline: none;
   transition: all 0.5s ease;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
   &.smallText {
     font-size: 14px;
@@ -45,14 +49,12 @@
   &.bigPadding {
     padding: var(--s3) var(--s9);
   }
-
 }
 
 .button-rounded {
   @extend .button;
   border-radius: var(--fs1);
 }
-
 
 .primary {
   @extend .button-rounded;
@@ -145,6 +147,7 @@
 
 
 }
+
 .mediaIconButton {
   @extend .iconButton;
 

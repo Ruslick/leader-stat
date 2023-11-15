@@ -2,7 +2,6 @@ import { FC, Fragment, ReactNode, memo, useState } from "react";
 import classNames from "classnames";
 
 import { Text } from "../Text/Text";
-import { logger } from "../../../utils/logger";
 import { Button } from "../Button/Button";
 
 import styles from "./Card.module.scss";
@@ -48,12 +47,7 @@ export const Card: FC<CardProps> = memo(({ meta, roles, actions }) => {
         ))}
       </div>
       <div className={styles.bottomMenu}>
-        <Button
-          padding="extraSmall"
-          variant="outline"
-          onClick={logger}
-          active={isHovered}
-        >
+        <Button padding="extraSmall" variant="outline" active={isHovered}>
           {meta.buttonText}
         </Button>
         <div className={styles.actions}>

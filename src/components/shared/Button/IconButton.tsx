@@ -6,7 +6,7 @@ import styles from "./Button.module.scss";
 interface IconButtonProps {
   children: ReactNode;
   variant?: "primary" | "media";
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const IconButton: FC<IconButtonProps> = memo(
@@ -16,7 +16,7 @@ export const IconButton: FC<IconButtonProps> = memo(
       [styles.mediaIconButton]: variant === "media",
     });
     return (
-      <button onClick={onClick} className={className}>
+      <button type="button" onClick={onClick} className={className}>
         {children}
       </button>
     );

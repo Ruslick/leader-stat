@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { AuthForm } from "../../shared/Auth/AuthForm/AuthForm";
@@ -7,18 +7,36 @@ import { Paths } from "../../../constants/paths";
 import { AlternativeOptions } from "./AlternativeOptions";
 import { Button } from "../../shared/Button/Button";
 import { AuthField } from "../../shared/Auth/AuthField/AuthField";
-
-type FormValues = {
-  email: string;
-  password: string;
-};
+import { SignInValues } from "../../../types/auth";
+import { useAppDispatch, useAppSelector } from "../../../hooks/store.hooks";
+import { loginUser } from "../../../store/auth/loginUser";
+import { selectAuth } from "../../../store/auth/authSelectors";
 
 export const SignInForm: FC = () => {
-  const { handleSubmit, register } = useForm<FormValues>();
+  const { loading, error } = useAppSelector(selectAuth);
+  const dispatch = useAppDispatch();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isValid },
+    setError,
+    setFocus,
+  } = useForm<SignInValues>();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    dispatch(loginUser(data));
   });
+
+  useEffect(() => {
+    setFocus("email");
+  }, [setFocus]);
+
+  useEffect(() => {
+    if (error) {
+      setError("root", { type: "custom", message: error.message });
+    }
+  }, [error, setError]);
+
   return (
     <AuthForm
       onSubmit={onSubmit}
@@ -31,10 +49,32 @@ export const SignInForm: FC = () => {
         </>
       }
       alternativeOptions={<AlternativeOptions />}
+      error={errors.root?.message}
     >
-      <AuthField autoComplete="email" type="email" placeholder="Адрес электронной почты" {...register("email")} />
-      <AuthField autoComplete="password" type="password" placeholder="Пароль" {...register("password")} />
-      <Button type="submit" variant="secondary" padding="small">
+      <AuthField
+        autoComplete="email"
+        type="text"
+        placeholder="Адрес электронной почты"
+        disabled={loading}
+        {...register("email", { required: true, pattern: /.+@.+\..+/ })}
+      />
+      <AuthField
+        autoComplete="password"
+        type="password"
+        placeholder="Пароль"
+        disabled={loading}
+        {...register("password", {
+          required: true,
+          minLength: 5,
+          maxLength: 20,
+        })}
+      />
+      <Button
+        disabled={loading || !isValid}
+        type="submit"
+        variant="secondary"
+        padding="small"
+      >
         Продолжить
       </Button>
     </AuthForm>

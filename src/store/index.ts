@@ -1,7 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import { authSlice } from "./auth/authSlice";
+import { hakatonSlice } from "./hakatons/hakatonSlice";
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [authSlice.name]: authSlice.reducer,
+    [hakatonSlice.name]: hakatonSlice.reducer,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

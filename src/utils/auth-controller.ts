@@ -1,13 +1,19 @@
-export const checkAuth = () => !!localStorage.getItem("access_token");
-export const setAuth = (tokens: { access: string; refresh: string }) => {
-  localStorage.setItem("access_token", tokens.access);
-  localStorage.setItem("refresh_token", tokens.refresh);
+import { Jwt } from "../types/auth";
+
+export const checkAuthLocalStorage = () => !!localStorage.getItem("access_token");
+export const setAuthLocalStorage = (tokens: Partial<Jwt>) => {
+  if (tokens.access) {
+    localStorage.setItem("access_token", tokens.access);
+  }
+  if (tokens.refresh) {
+    localStorage.setItem("refresh_token", tokens.refresh);
+  }
 };
-export const removeAuth = () => {
+export const removeAuthLocalStorage = () => {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
 };
-export const getAuth = () => {
+export const getAuthLocalStorage = () => {
   return {
     access: localStorage.getItem("access_token"),
     refresh: localStorage.getItem("refresh_token"),

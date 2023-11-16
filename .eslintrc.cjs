@@ -21,5 +21,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-shadow": "off",
     "arrow-body-style": "off",
+    "consistent-return": "off",
   },
 };

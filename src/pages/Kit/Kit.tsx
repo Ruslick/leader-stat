@@ -4,7 +4,6 @@ import { ThemeSelector } from "../../components/ThemeSelector/ThemeSelector";
 import { Text } from "../../components/shared/Text/Text";
 import { StarIcon } from "../../components/shared/icons/StarIcon";
 import { Button } from "../../components/shared/Button/Button";
-import { logger } from "../../utils/logger";
 import { Role } from "../../components/shared/Role/Role";
 import { KeyboardIcon } from "../../components/shared/icons/roles/KeyboardIcon";
 import { Card } from "../../components/shared/Card/Card";
@@ -36,34 +35,33 @@ export const Kit: FC = () => {
 
       <Text tag="h1">Кнопки</Text>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <IconButton onClick={logger}>
+        <IconButton>
           <StarIcon />
         </IconButton>
-        <IconButton variant="media" onClick={logger}>
+        <IconButton variant="media">
           <MailIcon />
         </IconButton>
 
-        <Button variant="primary" onClick={logger}>
+        <Button variant="primary" >
           Primary
         </Button>
-        <Button variant="secondary" onClick={logger} padding="normal">
+        <Button variant="secondary" padding="normal">
           Secondary
         </Button>
         <Button
           variant="transparent"
-          onClick={logger}
           icon={<StarIcon />}
           padding="small"
         >
           Transparent
         </Button>
-        <Button variant="transparent" onClick={logger} padding="small">
+        <Button variant="transparent" padding="small">
           Transparent
         </Button>
-        <Button onClick={logger} padding="small" icon={<StarIcon />}>
+        <Button padding="small" icon={<StarIcon />}>
           Any with icon
         </Button>
-        <Button variant="link" textSize="small" padding="no" onClick={logger}>
+        <Button variant="link" textSize="small" padding="no">
           Link.
         </Button>
       </div>

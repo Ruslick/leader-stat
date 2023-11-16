@@ -1,4 +1,5 @@
 import { FC, FormEventHandler, ReactNode } from "react";
+
 import styles from "./AuthForm.module.scss";
 import { Text } from "../../Text/Text";
 
@@ -8,6 +9,7 @@ interface AuthFormProps {
   title: string;
   actions: ReactNode;
   alternativeOptions?: ReactNode;
+  error?: string;
 }
 
 export const AuthForm: FC<AuthFormProps> = ({
@@ -16,6 +18,7 @@ export const AuthForm: FC<AuthFormProps> = ({
   title,
   actions,
   alternativeOptions,
+  error,
 }) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
@@ -25,6 +28,13 @@ export const AuthForm: FC<AuthFormProps> = ({
       </section>
       <section className={styles.content}>{children}</section>
 
+      {/* TODO: add error */}
+      {error && (
+        <section className={styles.error}>
+          Указан неверный e-mail или пароль
+        </section>
+      )}
+
       {alternativeOptions && (
         <section className={styles.alternativeOptionsWrapper}>
           <div className={styles.dividerBlock}>
@@ -32,7 +42,9 @@ export const AuthForm: FC<AuthFormProps> = ({
             <Text tag="h2">Или</Text>
             <div className={styles.divider} />
           </div>
-          <div className={styles.alternativeOptionsContent}>{alternativeOptions}</div>
+          <div className={styles.alternativeOptionsContent}>
+            {alternativeOptions}
+          </div>
         </section>
       )}
     </form>

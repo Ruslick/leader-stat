@@ -1,22 +1,26 @@
 import { FC } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { checkAuth } from "../../../utils/auth-controller";
 import { Paths } from "../../../constants/paths";
-
-
+import { useAppSelector } from "../../../hooks/store.hooks";
+import { selectAuth } from "../../../store/auth/authSelectors";
 
 interface PrivateRouteProps {
   anonimous?: boolean;
 }
 
 export const PrivateRoute: FC<PrivateRouteProps> = ({ anonimous = false }) => {
-  const isAuth = checkAuth();
+  const { success, loading } = useAppSelector(selectAuth);
 
-  if (!anonimous && !isAuth) {
+  if (loading) {
+    return <Outlet />;
+  }
+
+  if (!anonimous && !success) {
     return <Navigate to={Paths.SingIn} />;
   }
-  if (anonimous && isAuth) {
+  if (anonimous && success) {
     return <Navigate to={Paths.Home} />;
   }
+
   return <Outlet />;
 };

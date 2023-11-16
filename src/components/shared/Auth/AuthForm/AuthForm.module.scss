@@ -27,6 +27,7 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,4 +58,9 @@
   justify-content: center;
   display: flex;
   gap: var(--s3);
+}
+
+
+.error {
+  color: red; // TODO
 }

@@ -12,6 +12,7 @@ interface ButtonProps {
   textSize?: "small" | "normal";
   icon?: ReactNode;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo(
@@ -24,6 +25,7 @@ export const Button: FC<ButtonProps> = memo(
     active,
     icon,
     type = "button",
+    disabled = false,
   }) => {
     const className = classNames(
       styles[variant],
@@ -33,7 +35,7 @@ export const Button: FC<ButtonProps> = memo(
     );
 
     return (
-      <button type={type} className={className} onClick={onClick}>
+      <button disabled={disabled} type={type} className={className} onClick={onClick}>
         {icon}
         {children}
       </button>

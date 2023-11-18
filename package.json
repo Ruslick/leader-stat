@@ -9,12 +9,14 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier --write --ignore-unknown .",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gh-pages": "npm run build && "
   },
   "lint-staged": {
     "src/*": [
       "eslint --fix",
-      "prettier --write --ignore-unknown"
+      "prettier --write --ignore-unknown",
+      "npm run build"
     ]
   },
   "dependencies": {

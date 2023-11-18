@@ -4,6 +4,7 @@
 **/node_modules
 
 # Ignore artifacts:
+docs
 build
 coverage
 

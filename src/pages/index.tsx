@@ -1,14 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
+import { LogoutButton } from "../components/Auth/LogoutButton/LogoutButton";
+import { PrivateRoute } from "../components/Auth/PrivateRoute/PrivateRoute";
+import { Layout } from "../components/Layout/Layout/Layout";
+import { AuthLayout } from "../components/shared/Auth/AuthLayout/AuthLayout";
 import { Paths } from "../constants/paths";
 import { HomePage } from "./Home/Home";
 import { Kit } from "./Kit/Kit";
 import { SignIn } from "./SignIn/SignIn";
-import { PrivateRoute } from "../components/Auth/PrivateRoute/PrivateRoute";
-import { AuthLayout } from "../components/shared/Auth/AuthLayout/AuthLayout";
-import { Layout } from "../components/Layout/Layout/Layout";
-import { LogoutButton } from "../components/Auth/LogoutButton/LogoutButton";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   { path: Paths.Kit, element: <Kit /> },
   {
     path: "/",

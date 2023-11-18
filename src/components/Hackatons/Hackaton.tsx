@@ -50,7 +50,7 @@ export const HackatonCard: FC<HackatonCardProps> = ({ meta }) => {
         <Role icon={<CursorIcon />}>{isOnline ? "Онлайн" : "Оффлайн"}</Role>
       </div>
       <div className={styles.bottomMenu}>
-        <Button padding="extraSmall" variant="outline" active={isHovered}>
+        <Button padding="small" textSize="small" radius="small" variant="outline" active={isHovered}>
           Регистрация до {getDayMonthFromDate(end_registration)}
         </Button>
         <div className={styles.actions}>

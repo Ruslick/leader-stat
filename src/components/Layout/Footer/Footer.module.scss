@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  gap: var(--s3);
+  flex-direction: column;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.links {
+  display: flex;
+  gap: var(--s3);
+}
+
+.security {
+  display: flex;
+  gap: var(--s3);
+  align-self: flex-end;
+}

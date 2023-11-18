@@ -1,0 +1,17 @@
+.user {
+  display: flex;
+  gap: var(--s4);
+  align-items: center;
+  padding-right: var(--s9);
+  
+}
+
+.avatar {
+  width: var(--s9);
+  height: var(--s9);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  right: var(--s1);
+}

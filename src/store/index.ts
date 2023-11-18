@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { authSlice } from "./auth/authSlice";
-import { hakatonSlice } from "./hakatons/hakatonSlice";
+import { hackatonSlice } from "./hackatons/hackatonSlice";
 
 export const store = configureStore({
   reducer: {
     [authSlice.name]: authSlice.reducer,
-    [hakatonSlice.name]: hakatonSlice.reducer,
+    [hackatonSlice.name]: hackatonSlice.reducer,
   },
 });
 

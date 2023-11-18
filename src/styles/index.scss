@@ -2,4 +2,6 @@ body {
   background-color: var(--color-bg);
 
   font-family: var(--font-family);
+  
+  overflow-y: scroll;
 }

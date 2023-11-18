@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Outlet } from "react-router-dom";
 
 import styles from "./AuthLayout.module.scss";
-import { Logo } from "../../icons/Logo";
+import { Logo } from "../../icons/logos/Logo";
 
 export const AuthLayout: FC = () => {
   return (

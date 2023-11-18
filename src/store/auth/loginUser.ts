@@ -13,7 +13,7 @@ export const loginUser = createAsyncThunk<
   try {
     const res = await api.post(TOKENS_URL, values);
     return res.data;
-  } catch (_err) {
-    return rejectWithValue(handleAxiosError(_err, "Login failed"));
+  } catch (err) {
+    return rejectWithValue(handleAxiosError(err, "Login failed"));
   }
 });

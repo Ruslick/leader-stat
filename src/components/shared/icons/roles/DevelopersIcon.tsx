@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const KeyboardIcon: FC = () => {
+export const DevelopersIcon: FC = () => {
   return (
     <svg
       width="20"

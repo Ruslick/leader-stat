@@ -16,8 +16,10 @@
   --s12: calc(var(--s1) * 12); // 48px
   --s13: calc(var(--s1) * 13); // 52px
   --s14: calc(var(--s1) * 14); // 56px
+  --s15: calc(var(--s1) * 15); // 60px
+  --s16: calc(var(--s1) * 16); // 64px
 
   --fs1: 14px;
-  --fs2: calc(var(--fs1) * 1.618); // 21px
-  --fs3: calc(var(--fs2) * 1.618); // 28px
+  --fs2: 19px;
+  --fs3: 28px;
 }

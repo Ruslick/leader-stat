@@ -5,4 +5,8 @@ export const enum Paths {
   Kit = "/kit",
   SingIn = "/singin",
   SingUp = "/singup",
+  News = "/news",
+  Market = "/market",
+  Messages = "/messages",
+  Profile = "/profile",
 }

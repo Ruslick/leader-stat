@@ -11,13 +11,15 @@ interface TextProps {
   id?: string;
 }
 
-export const Text: FC<TextProps> = memo(({ tag = "p", children, weight, active, id }) => {
-  const className = classNames(
-    styles.text,
-    styles[tag],
-    weight ? styles[weight] : "",
-    { [styles.active]: active }
-  );
+export const Text: FC<TextProps> = memo(
+  ({ tag = "p", children, weight, active, id }) => {
+    const className = classNames(
+      styles.text,
+      styles[tag],
+      weight ? styles[weight] : "",
+      { [styles.active]: active },
+    );
 
-  return createElement(tag, { className, id }, children);
-})
+    return createElement(tag, { className, id }, children);
+  },
+);

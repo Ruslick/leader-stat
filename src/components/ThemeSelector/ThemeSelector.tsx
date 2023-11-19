@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { Themes } from "../../constants/themes";
+import { themes, Themes } from "../../constants/themes";
 import { useTheme } from "../../hooks/themes/useTheme";
 
 export const ThemeSelector: FC = () => {
@@ -12,9 +12,10 @@ export const ThemeSelector: FC = () => {
 
   return (
     <select onChange={handleSelect} defaultValue={getTheme()}>
-      <option value={Themes.Default}>Default</option>
-      <option value={Themes.Light}>Light</option>
-      <option value={Themes.Dark}>Dark</option>
+      <option value={themes.navy}>Navy</option>
+      <option value={themes.gray}>Gray</option>
+      <option value={themes.pearl}>Pearl</option>
+      <option value={themes.black}>Black</option>
     </select>
   );
 };

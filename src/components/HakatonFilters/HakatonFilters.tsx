@@ -12,25 +12,25 @@ export const HakatonFilters: FC = () => {
     <ul role="navigation" className={styles.filters}>
       <li>
         <Button
-          padding="small"
-          variant="transparent"
+          variant="secondary"
           icon={<BurgerFilterIcon />}
+          textSize="small"
         >
           Фильтр
         </Button>
       </li>
       <li>
-        <Button padding="small" variant="transparent" icon={<StarIcon />}>
+        <Button variant="secondary" icon={<StarIcon />} textSize="small">
           Хакатоны для меня
         </Button>
       </li>
       <li>
-        <Button padding="small" variant="transparent" icon={<DoneIcon />}>
+        <Button variant="secondary" icon={<DoneIcon />} textSize="small">
           Я учавствую
         </Button>
       </li>
       <li>
-        <Button padding="small" variant="transparent" icon={<HeartIcon />}>
+        <Button variant="secondary" icon={<HeartIcon />} textSize="small">
           Избранное
         </Button>
       </li>

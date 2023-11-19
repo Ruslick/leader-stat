@@ -1,19 +1,26 @@
 import classNames from "classnames";
-import { FC, MouseEventHandler, ReactNode, memo } from "react";
+import { FC, ReactNode, memo } from "react";
 
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
   children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  variant?: "primary" | "secondary" | "transparent" | "link" | "outline";
-  active?: boolean;
-  padding?: "no" | "extraSmall" | "small" | "normal" | "big";
+  onClick?: VoidFunction;
+  variant?:
+    | "primary"
+    | "inverted"
+    | "secondary"
+    | "transparent"
+    | "link"
+    | "outline";
+  padding?: "no" | "small" | "normal" | "big";
   textSize?: "small" | "normal";
   radius?: "small" | "normal";
-  icon?: ReactNode;
   type?: "button" | "submit" | "reset";
+  icon?: ReactNode;
+
   disabled?: boolean;
+  active?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo(
@@ -21,13 +28,13 @@ export const Button: FC<ButtonProps> = memo(
     children,
     onClick,
     variant = "primary",
-    padding = "big",
+    padding = "normal",
     textSize = "normal",
     radius = "normal",
     active,
     icon,
     type = "button",
-    disabled = false,
+    disabled,
   }) => {
     const className = classNames(
       styles[variant],
@@ -35,6 +42,7 @@ export const Button: FC<ButtonProps> = memo(
       styles[`${textSize}Text`],
       styles[`${radius}Radius`],
       { [styles.active]: active },
+      { [styles.withIcon]: icon },
     );
 
     return (

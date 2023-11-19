@@ -70,10 +70,10 @@ export const LoginForm: FC = () => {
         })}
       />
       <Button
-        disabled={loading || !isValid}
         type="submit"
         variant="secondary"
-        padding="small"
+        padding="big"
+        disabled={loading || !isValid}
       >
         Продолжить
       </Button>

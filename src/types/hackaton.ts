@@ -22,5 +22,4 @@ export type HackatonsFilter =
   | "hidden"
   | "favorite";
 
-
-export type HackatonsView = "list" | "grid"
+export type HackatonsView = "list" | "grid";

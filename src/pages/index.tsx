@@ -6,7 +6,7 @@ import { AuthLayout } from "../components/shared/Auth/AuthLayout/AuthLayout";
 import { Paths } from "../constants/paths";
 import { HomePage } from "./Home/Home";
 import { Kit } from "./Kit/Kit";
-import { SignIn } from "./SignIn/SignIn";
+import { Login } from "./Login/Login";
 
 export const router = createHashRouter([
   { path: Paths.Kit, element: <Kit /> },
@@ -54,8 +54,8 @@ export const router = createHashRouter([
         element: <AuthLayout />,
         children: [
           {
-            path: Paths.SingIn,
-            element: <SignIn />,
+            path: Paths.Login,
+            element: <Login />,
           },
         ],
       },

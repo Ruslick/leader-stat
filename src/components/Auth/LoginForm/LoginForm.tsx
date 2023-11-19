@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/store.hooks";
 import { loginUser } from "../../../store/auth/loginUser";
 import { selectAuth } from "../../../store/auth/authSelectors";
 
-export const SignInForm: FC = () => {
+export const LoginForm: FC = () => {
   const { loading, error } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
   const {

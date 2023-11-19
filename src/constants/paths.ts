@@ -1,10 +1,8 @@
 export const enum Paths {
   Home = "/",
-  Login = "/login",
   Registration = "/registration",
+  Login = "/login",
   Kit = "/kit",
-  SingIn = "/singin",
-  SingUp = "/singup",
   News = "/news",
   Market = "/market",
   Messages = "/messages",

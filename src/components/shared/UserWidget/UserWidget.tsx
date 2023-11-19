@@ -14,7 +14,11 @@ export const UserWidget: FC<UserWidgetProps> = ({ id, avatarUrl }) => {
   const { pathname } = useLocation();
   return (
     <Link to={Paths.Profile}>
-      <Button variant="transparent" active={pathname === Paths.Profile} padding="extraSmall">
+      <Button
+        variant="transparent"
+        active={pathname === Paths.Profile}
+        padding="normal"
+      >
         <div className={styles.user}>
           {id}
           <img className={styles.avatar} src={avatarUrl} alt="user_avatar" />

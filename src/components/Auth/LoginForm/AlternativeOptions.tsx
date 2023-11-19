@@ -2,7 +2,6 @@ import { FC } from "react";
 import { IconButton } from "../../shared/Button/IconButton";
 import { MailIcon } from "../../shared/icons/medias/MailIcon";
 
-
 export const AlternativeOptions: FC = () => {
   return (
     <>

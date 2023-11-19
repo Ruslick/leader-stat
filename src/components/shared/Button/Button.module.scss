@@ -1,54 +1,68 @@
-@import 'button';
+@import "button";
 
 .primary {
   @extend %standart-button;
 
-
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--accent);
+  color: var(--text-primary);
 
   &:hover {
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    background-color: var(--text-primary);
+    color: var(--bg);
   }
 
   &.active {
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    background-color: var(--text-primary);
+    color: var(--bg);
+  }
+}
+
+.inverted {
+  @extend %standart-button;
+
+  background-color: var(--text-primary);
+  color: var(--bg);
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--accent-text);
   }
 
+  &.active {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
 }
 
 .secondary {
   @extend %standart-button;
 
-  background-color: var(--color-text);
-  color: var(--color-bg);
+  background-color: var(--primary);
+  color: var(--text-secondary);
 
   &:hover {
-    background-color: var(--color-accent);
-    color: var(--color-text);
+    background-color: var(--accent);
+    color: var(--accent-text);
   }
 
   &.active {
-    background-color: var(--color-accent);
-    color: var(--color-text);
+    background-color: var(--accent);
+    color: var(--accent-text);
   }
 }
 
 .transparent {
   @extend %standart-button;
 
-
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--text-primary);
 
   &:hover {
-    background-color: var(--color-accent);
+    background-color: var(--accent);
   }
 
   &.active {
-    background-color: var(--color-accent);
+    background-color: var(--accent);
   }
 }
 
@@ -56,29 +70,25 @@
   @extend %standart-button;
 
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--text-primary);
 
   &:hover {
-    color: var(--color-accent);
+    color: var(--accent);
   }
-
 }
 
 .outline {
   @extend %standart-button;
 
   background-color: transparent;
-  border: 1px solid var(--color-text);
-  color: var(--color-text);
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
 
   &.active {
-    background-color: var(--color-accent);
-    border: 1px solid var(--color-accent);
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
   }
-
 }
-
-
 
 .mediaIconButton {
   @extend %button-base;
@@ -86,12 +96,12 @@
 
   padding: var(--s2);
   border-radius: 50%;
-  background-color: var(--color-text);
-  color: var(--color-bg);
+  background-color: var(--text-primary);
+  color: var(--bg);
 
   &:hover {
-    background-color: var(--color-accent);
-    color: var(--color-text);
+    background-color: var(--accent);
+    color: var(--text-primary);
   }
 }
 
@@ -99,9 +109,9 @@
   @extend %button-base;
 
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--text-primary);
 
   &:hover {
-    color: var(--color-accent);
+    color: var(--accent);
   }
 }

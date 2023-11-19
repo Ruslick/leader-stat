@@ -14,7 +14,7 @@ export const Navbar: FC = () => {
         <Link to={Paths.News}>
           <Button
             variant="transparent"
-            padding="small"
+            padding="normal"
             active={pathname === Paths.News}
           >
             Новости
@@ -25,7 +25,7 @@ export const Navbar: FC = () => {
         <Link to={Paths.Home}>
           <Button
             variant="transparent"
-            padding="small"
+            padding="normal"
             active={pathname === Paths.Home}
           >
             Хакатоны
@@ -36,7 +36,7 @@ export const Navbar: FC = () => {
         <Link to={Paths.Market}>
           <Button
             variant="transparent"
-            padding="small"
+            padding="normal"
             active={pathname === Paths.Market}
           >
             Маркет
@@ -47,7 +47,7 @@ export const Navbar: FC = () => {
         <Link to={Paths.Messages}>
           <Button
             variant="transparent"
-            padding="small"
+            padding="normal"
             active={pathname === Paths.Messages}
           >
             Сообщения

@@ -10,6 +10,7 @@ import {
 import { getHackatonsThunk } from "../../store/hackatons/getHackatonsThunk";
 import { HackatonCard } from "./Hackaton";
 import styles from "./Hackaton.module.scss";
+import { Button } from "../shared/Button/Button";
 
 export const HackatonsList: FC = () => {
   const { loading, error, success, hakatons } = useAppSelector(selectHakatons);
@@ -41,6 +42,12 @@ export const HackatonsList: FC = () => {
       {hakatons.map((hakaton) => (
         <HackatonCard key={hakaton.title} meta={hakaton} />
       ))}
+      <div className={styles.overlay}></div>
+      <div className={styles.moreButtonWrapper}>
+        <Button variant="secondary" padding="big">
+          Показать больше хакатонов
+        </Button>
+      </div>
     </div>
   );
 };

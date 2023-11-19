@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import styles from "./AuthFormAction.module.scss"
+import styles from "./AuthFormAction.module.scss";
 
 import { Text } from "../../Text/Text";
 import { Button } from "../../Button/Button";
@@ -22,7 +22,9 @@ export const AuthFormAction: FC<AuthFormActionProps> = ({
     <div className={styles.wrapper}>
       <Text tag="p">{children}</Text>
       <Link to={to}>
-        <Button textSize="small" padding="no" variant="link">{actionText}</Button>
+        <Button textSize="small" padding="no" variant="link">
+          {actionText}
+        </Button>
       </Link>
     </div>
   );

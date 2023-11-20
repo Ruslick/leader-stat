@@ -1,23 +1,17 @@
 import { FC } from "react";
 import { Button } from "../shared/Button/Button";
 import { StarIcon } from "../shared/icons/StarIcon";
-import { BurgerFilterIcon } from "../shared/icons/actions/BurgerFilterIcon";
 import { DoneIcon } from "../shared/icons/actions/DoneIcon";
 import { HeartIcon } from "../shared/icons/actions/HeartIcon";
 import { HackatonsViewButton } from "./HackatonsViewButton";
 import styles from "./HakatonFilters.module.scss";
+import { HackatonFilterMenuButton } from "./HackatonFilterMenuButton";
 
 export const HakatonFilters: FC = () => {
   return (
     <ul role="navigation" className={styles.filters}>
       <li>
-        <Button
-          variant="secondary"
-          icon={<BurgerFilterIcon />}
-          textSize="small"
-        >
-          Фильтр
-        </Button>
+        <HackatonFilterMenuButton />
       </li>
       <li>
         <Button variant="secondary" icon={<StarIcon />} textSize="small">

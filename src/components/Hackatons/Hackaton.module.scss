@@ -1,15 +1,19 @@
 .container {
+  transition: all 0.5s ease;
+  display: grid;
+
+
   position: relative;
-  margin-top: var(--s7);
   gap: var(--s3);
 
   &.grid {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    &.twoColumns {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &.list {
-    display: grid;
     grid-template-columns: 1fr;
   }
 }

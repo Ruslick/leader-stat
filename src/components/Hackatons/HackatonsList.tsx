@@ -11,10 +11,13 @@ import { getHackatonsThunk } from "../../store/hackatons/getHackatonsThunk";
 import { HackatonCard } from "./Hackaton";
 import styles from "./Hackaton.module.scss";
 import { Button } from "../shared/Button/Button";
+import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors";
 
 export const HackatonsList: FC = () => {
   const { loading, error, success, hakatons } = useAppSelector(selectHakatons);
   const view = useAppSelector(selectHackatonsView);
+
+  const isOpenedFilterMenu = useAppSelector(selectIsOpenedFilterMenu);
 
   const dispatch = useAppDispatch();
 
@@ -23,7 +26,7 @@ export const HackatonsList: FC = () => {
   }, [success]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return null;
   }
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -35,6 +38,7 @@ export const HackatonsList: FC = () => {
 
   const className = classNames(styles.container, {
     [styles[view]]: true,
+    [styles.twoColumns]: isOpenedFilterMenu,
   });
 
   return (

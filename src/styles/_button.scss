@@ -6,7 +6,6 @@
   transition: all 0.5s ease;
   position: relative;
 
-
   &:disabled {
     pointer-events: none;
     opacity: 0.5;
@@ -14,18 +13,18 @@
 }
 
 %button-with-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--s2);
+  &.withIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s2);
 
-  & svg {
-    width: var(--s5);
-    height: var(--s5)
+    & svg {
+      width: var(--s5);
+      height: var(--s5);
+    }
   }
-
 }
-
 
 %button-text {
   font-family: var(--font-family);
@@ -37,7 +36,7 @@
   }
 
   &.normalText {
-    font-size: 18px;
+    font-size: 19px;
   }
 }
 
@@ -46,31 +45,26 @@
     padding: 0;
   }
 
-  &.extraSmallPadding {
-    padding: var(--s3) var(--s4);
-  }
-
   &.smallPadding {
-    padding: var(--s3) var(--s6);
+    padding: var(--s2) var(--s4);
   }
 
   &.normalPadding {
-    padding: var(--s3) var(--s8);
+    padding: var(--s3) var(--s5);
   }
 
   &.bigPadding {
-    padding: var(--s3) var(--s9);
+    padding: var(--s4) var(--s7);
   }
 }
 
 %button-radius {
   &.smallRadius {
-    border-radius: var(--s4);
+    border-radius: var(--s3);
   }
 
   &.normalRadius {
-    border-radius: var(--s6);
-
+    border-radius: var(--s8);
   }
 }
 

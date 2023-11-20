@@ -1,6 +1,5 @@
 :root {
-  --font-family: 'Open Sans', sans-serif;
-
+  --font-family: "Open Sans", sans-serif;
 
   --s1: 4px;
   --s2: calc(var(--s1) * 2); // 8px
@@ -18,6 +17,8 @@
   --s14: calc(var(--s1) * 14); // 56px
   --s15: calc(var(--s1) * 15); // 60px
   --s16: calc(var(--s1) * 16); // 64px
+  --s20: calc(var(--s1) * 20); // 80px
+  --s50: calc(var(--s1) * 50); // 200px
 
   --fs1: 14px;
   --fs2: 19px;

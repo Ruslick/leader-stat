@@ -12,7 +12,7 @@ export const router = createHashRouter([
   { path: Paths.Kit, element: <Kit /> },
   {
     path: "/",
-    // element: <PrivateRoute />,
+    element: <PrivateRoute />,
     children: [
       {
         element: <Layout />,

@@ -16,7 +16,7 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({ anonimous = false }) => {
   }
 
   if (!anonimous && !success) {
-    return <Navigate to={Paths.Registration} />;
+    return <Navigate to={Paths.Login} />;
   }
   if (anonimous && success) {
     return <Navigate to={Paths.Home} />;

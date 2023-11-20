@@ -1,4 +1,4 @@
-import { THEME_KEY, Themes } from "../constants/themes";
+import { THEME_KEY, themes, Themes } from "../constants/themes";
 
 export const setThemeLocalStorage = (theme: Themes) => {
   localStorage.setItem(THEME_KEY, theme);
@@ -8,8 +8,8 @@ export const setThemeLocalStorage = (theme: Themes) => {
 export const getThemeLocalStorage = () => {
   let theme = localStorage.getItem(THEME_KEY);
 
-  if (!theme) {
-    theme = setThemeLocalStorage(Themes.Default);
+  if (!theme || theme in themes === false) {
+    theme = setThemeLocalStorage(themes.navy);
   }
 
   return theme as Themes;

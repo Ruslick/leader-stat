@@ -1,0 +1,52 @@
+@import "../../../styles/button";
+
+;
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--highlight);
+  padding-bottom: var(--s3);
+}
+
+.button {
+  @extend %button-base;
+  @extend %button-text;
+  text-align: start;
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-size: var(--fs1);
+  color: var(--text-primary);
+  width: 100%;
+
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 0.5s ease;
+
+  &.open {
+    transform: rotate(-90deg);
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  overflow: hidden;
+
+  transition: all 0.5s;
+
+  opacity: 0;
+  height: fit-content;
+  max-height: 0%;
+
+  &.open {
+    opacity: 1;
+    max-height: 100%;
+  }
+
+}

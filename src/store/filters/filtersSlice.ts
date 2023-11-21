@@ -7,7 +7,13 @@ interface FiltersState {
 }
 
 const initialState: FiltersState = {
-  cities: { Волгоград: false, Москва: false, "Санкт-Петербург": false, "Екатеринбург": false, "Нижний Новгород": false },
+  cities: {
+    Волгоград: false,
+    Москва: false,
+    "Санкт-Петербург": false,
+    Екатеринбург: false,
+    "Нижний Новгород": false,
+  },
 };
 
 export const filtersSlice = createSlice({

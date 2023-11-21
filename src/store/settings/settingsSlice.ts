@@ -5,7 +5,7 @@ interface SettingsState {
 }
 
 const initialState: SettingsState = {
-  isOpenedFilterMenu: true,
+  isOpenedFilterMenu: false,
 };
 
 export const settingsSlice = createSlice({

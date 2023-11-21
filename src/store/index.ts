@@ -12,6 +12,10 @@ export const store = configureStore({
     [settingsSlice.name]: settingsSlice.reducer,
     [filtersSlice.name]: filtersSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

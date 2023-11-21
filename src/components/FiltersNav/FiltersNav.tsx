@@ -3,15 +3,15 @@ import { Button } from "../shared/Button/Button";
 import { StarIcon } from "../shared/icons/StarIcon";
 import { DoneIcon } from "../shared/icons/actions/DoneIcon";
 import { HeartIcon } from "../shared/icons/actions/HeartIcon";
-import { HackatonsViewButton } from "./HackatonsViewButton";
-import styles from "./HakatonFilters.module.scss";
-import { HackatonFilterMenuButton } from "./HackatonFilterMenuButton";
+import styles from "./FiltersNav.module.scss";
+import { ViewButton } from "./ViewButton";
+import { FilterMenuButton } from "./FilterMenuButton";
 
-export const HakatonFilters: FC = () => {
+export const FiltersNav: FC = () => {
   return (
     <ul role="navigation" className={styles.filters}>
       <li>
-        <HackatonFilterMenuButton />
+        <FilterMenuButton />
       </li>
       <li>
         <Button variant="secondary" icon={<StarIcon />} textSize="small">
@@ -29,7 +29,7 @@ export const HakatonFilters: FC = () => {
         </Button>
       </li>
       <li className={styles.view}>
-        <HackatonsViewButton />
+        <ViewButton />
       </li>
     </ul>
   );

@@ -90,6 +90,21 @@
   }
 }
 
+.filter {
+  @extend %standart-button;
+  background-color: transparent;
+  color: var(--text-primary);
+
+  &:hover {
+    color: var(--accent)
+  }
+
+  &.active {
+    color: var(--bg);
+    background-color: var(--highlight);
+  }
+}
+
 .mediaIconButton {
   @extend %button-base;
   display: flex;

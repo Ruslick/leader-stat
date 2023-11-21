@@ -12,7 +12,21 @@ export const getHackatonsThunk = createAsyncThunk<
   { rejectValue: ApiError }
 >("hakatons/getHakatons", async (_, { rejectWithValue }) => {
   try {
+    // api.request({
+    //   transformResponse: (data) =>
+    //     JSON.parse(data, (key, value) => {
+    //       if (
+    //         key === "start" ||
+    //         key === "end" ||
+    //         key === "start_registration" ||
+    //         key === "end_registration"
+    //       ) {
+    //         return new Date(value);
+    //       }
+    //     }),
+    // });
     // const res = await api.get(HACKATON_URL);
+    // console.log(res);
     // return res.data;
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);

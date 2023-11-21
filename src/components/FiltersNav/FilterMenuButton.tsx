@@ -5,7 +5,7 @@ import { BurgerFilterIcon } from "../shared/icons/actions/BurgerFilterIcon";
 import { toggleFilterMenu } from "../../store/settings/settingsSlice";
 import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors";
 
-export const HackatonFilterMenuButton: FC = () => {
+export const FilterMenuButton: FC = () => {
   const dispatch = useAppDispatch();
   const active = useAppSelector(selectIsOpenedFilterMenu);
 

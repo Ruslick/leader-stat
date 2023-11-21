@@ -12,7 +12,8 @@ interface ButtonProps {
     | "secondary"
     | "transparent"
     | "link"
-    | "outline";
+    | "outline"
+    | "filter";
   padding?: "no" | "small" | "normal" | "big";
   textSize?: "small" | "normal";
   radius?: "small" | "normal";

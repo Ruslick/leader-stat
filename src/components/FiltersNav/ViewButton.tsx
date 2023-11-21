@@ -6,7 +6,7 @@ import { toggleHackatonView } from "../../store/hackatons/hackatonSlice";
 import { RowViewIcon } from "../shared/icons/actions/RowViewIcon";
 import { ColumnsViewIcon } from "../shared/icons/actions/ColumnsViewIcon";
 
-export const HackatonsViewButton: FC = () => {
+export const ViewButton: FC = () => {
   const view = useAppSelector(selectHackatonsView);
 
   const dispatch = useAppDispatch();

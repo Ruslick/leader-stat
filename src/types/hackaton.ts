@@ -1,18 +1,27 @@
-export interface Hackaton {
+export interface HackatonBase {
   title: string;
-  imageUrl: string;
+  image_url: string;
   description: string;
   descriptionShort: string;
   creator: string;
+  tracks: string[];
+  grand_prize: string;
+  roles: string[];
+  location: string;
+  is_online: boolean;
+}
+export interface Hackaton extends HackatonBase {
   start_registration: Date;
   end_registration: Date;
   start: Date;
   end: Date;
-  tracks: string[];
-  grandPrize: string;
-  roles: string[];
-  location: string;
-  isOnline: boolean;
+}
+
+export interface HackatonResponse extends HackatonBase {
+  start_registration: string;
+  end_registration: string;
+  start: string;
+  end: string;
 }
 
 export type HackatonsFilter =

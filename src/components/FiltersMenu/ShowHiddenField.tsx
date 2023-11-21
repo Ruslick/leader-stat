@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Text } from "../shared/Text/Text";
 import { Checkbox } from "../shared/Checkbox/Checkbox";
-import styles from "./FiltersMenu.module.scss"
+import styles from "./FiltersMenu.module.scss";
 
 export const ShowHiddenField: FC = () => {
   return (

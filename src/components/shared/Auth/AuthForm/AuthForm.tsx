@@ -29,11 +29,7 @@ export const AuthForm: FC<AuthFormProps> = ({
       <section className={styles.content}>{children}</section>
 
       {/* TODO: add error */}
-      {error && (
-        <section className={styles.error}>
-          Указан неверный e-mail или пароль
-        </section>
-      )}
+      {error && <section className={styles.error}>Ошибка авторизации</section>}
 
       {alternativeOptions && (
         <section className={styles.alternativeOptionsWrapper}>

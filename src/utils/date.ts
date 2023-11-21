@@ -1,3 +1,5 @@
+import { Hackaton, HackatonResponse } from "../types/hackaton";
+
 export const getMonthName = (date: Date) => {
   const monts = {
     0: "Января",
@@ -31,4 +33,18 @@ export const getDateTextRole = (startDate: Date, endDate: Date) => {
     return `${startDate.getDate()} ${startMonth} - ${endDate.getDate()} ${endMonth}`;
   }
   return `${startDate.getDate()} - ${endDate.getDate()} ${endMonth}`;
+};
+
+export const hackatonsConvertDates = (
+  hackatons: HackatonResponse[],
+): Hackaton[] => {
+  return hackatons.map((hackaton) => {
+    return {
+      ...hackaton,
+      start: new Date(hackaton.start),
+      end: new Date(hackaton.end),
+      start_registration: new Date(hackaton.start_registration),
+      end_registration: new Date(hackaton.end_registration),
+    };
+  });
 };

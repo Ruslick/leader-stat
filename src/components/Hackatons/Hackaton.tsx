@@ -26,8 +26,8 @@ export const HackatonCard: FC<HackatonCardProps> = ({ meta }) => {
     end_registration,
     start,
     end,
-    grandPrize,
-    isOnline,
+    grand_prize,
+    is_online,
   } = meta;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -45,9 +45,9 @@ export const HackatonCard: FC<HackatonCardProps> = ({ meta }) => {
       <Text tag="h2">{descriptionShort}</Text>
       <Text tag="p">{description}</Text>
       <div className={styles.roles}>
-        <Role icon={<CupIcon />}>{grandPrize}</Role>
+        <Role icon={<CupIcon />}>{grand_prize}</Role>
         <Role icon={<FinishIcon />}>{getDateTextRole(start, end)}</Role>
-        <Role icon={<CursorIcon />}>{isOnline ? "Онлайн" : "Оффлайн"}</Role>
+        <Role icon={<CursorIcon />}>{is_online ? "Онлайн" : "Оффлайн"}</Role>
       </div>
       <div className={styles.bottomMenu}>
         <Button

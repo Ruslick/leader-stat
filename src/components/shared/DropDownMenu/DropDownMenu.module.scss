@@ -19,21 +19,17 @@
 .input {
   display: none;
 
-
   &:checked {
-    ~.face {
+    ~ .face {
       .arrow {
         transform: rotate(-90deg);
       }
-
     }
 
-    ~.items {
+    ~ .items {
       height: fit-content;
       opacity: 1;
       display: flex;
-
-
     }
   }
 }
@@ -56,7 +52,9 @@
 
 .items {
   display: none;
-  transition: height, opacity 0.5s ease;
+  transition:
+    height,
+    opacity 0.5s ease;
   height: 0px;
   opacity: 0;
   overflow: hidden;

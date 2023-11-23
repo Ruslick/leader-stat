@@ -35,9 +35,7 @@ export const getDateTextRole = (startDate: Date, endDate: Date) => {
   return `${startDate.getDate()} - ${endDate.getDate()} ${endMonth}`;
 };
 
-export const hackatonsConvertDates = (
-  hackatons: HackatonResponse[],
-): Hackaton[] => {
+export const hackatonsConvertDates = (hackatons: HackatonResponse[]): Hackaton[] => {
   return hackatons.map((hackaton) => {
     return {
       ...hackaton,

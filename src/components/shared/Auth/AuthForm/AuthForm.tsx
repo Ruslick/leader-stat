@@ -38,9 +38,7 @@ export const AuthForm: FC<AuthFormProps> = ({
             <Text tag="h2">Или</Text>
             <div className={styles.divider} />
           </div>
-          <div className={styles.alternativeOptionsContent}>
-            {alternativeOptions}
-          </div>
+          <div className={styles.alternativeOptionsContent}>{alternativeOptions}</div>
         </section>
       )}
     </form>

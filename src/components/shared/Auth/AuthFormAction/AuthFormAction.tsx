@@ -13,11 +13,7 @@ interface AuthFormActionProps {
   to: Paths;
 }
 
-export const AuthFormAction: FC<AuthFormActionProps> = ({
-  children,
-  actionText,
-  to,
-}) => {
+export const AuthFormAction: FC<AuthFormActionProps> = ({ children, actionText, to }) => {
   return (
     <div className={styles.wrapper}>
       <Text tag="p">{children}</Text>

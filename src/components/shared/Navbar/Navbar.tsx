@@ -12,44 +12,28 @@ export const Navbar: FC = () => {
     <ul role="navigation" className={styles.navbar}>
       <li>
         <Link to={Paths.News}>
-          <Button
-            variant="transparent"
-            padding="normal"
-            active={pathname === Paths.News}
-          >
+          <Button variant="transparent" padding="normal" active={pathname === Paths.News}>
             Новости
           </Button>
         </Link>
       </li>
       <li>
         <Link to={Paths.Home}>
-          <Button
-            variant="transparent"
-            padding="normal"
-            active={pathname === Paths.Home}
-          >
+          <Button variant="transparent" padding="normal" active={pathname === Paths.Home}>
             Хакатоны
           </Button>
         </Link>
       </li>
       <li>
         <Link to={Paths.Market}>
-          <Button
-            variant="transparent"
-            padding="normal"
-            active={pathname === Paths.Market}
-          >
+          <Button variant="transparent" padding="normal" active={pathname === Paths.Market}>
             Маркет
           </Button>
         </Link>
       </li>
       <li>
         <Link to={Paths.Messages}>
-          <Button
-            variant="transparent"
-            padding="normal"
-            active={pathname === Paths.Messages}
-          >
+          <Button variant="transparent" padding="normal" active={pathname === Paths.Messages}>
             Сообщения
           </Button>
         </Link>

@@ -6,14 +6,7 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
   children: ReactNode;
   onClick?: VoidFunction;
-  variant?:
-    | "primary"
-    | "inverted"
-    | "secondary"
-    | "transparent"
-    | "link"
-    | "outline"
-    | "filter";
+  variant?: "primary" | "inverted" | "secondary" | "transparent" | "link" | "outline" | "filter";
   padding?: "no" | "small" | "normal" | "big";
   textSize?: "small" | "normal";
   radius?: "small" | "normal";
@@ -47,12 +40,7 @@ export const Button: FC<ButtonProps> = memo(
     );
 
     return (
-      <button
-        disabled={disabled}
-        type={type}
-        className={className}
-        onClick={onClick}
-      >
+      <button disabled={disabled} type={type} className={className} onClick={onClick}>
         {icon}
         {children}
       </button>

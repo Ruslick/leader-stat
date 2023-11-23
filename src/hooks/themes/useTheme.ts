@@ -1,11 +1,5 @@
-import {
-  getThemeLocalStorage,
-  setThemeLocalStorage,
-} from "../../utils/theme-controller";
+import { getThemeLocalStorage, setThemeLocalStorage } from "../../utils/theme-controller";
 
-export const useTheme = (): [
-  typeof getThemeLocalStorage,
-  typeof setThemeLocalStorage,
-] => {
+export const useTheme = (): [typeof getThemeLocalStorage, typeof setThemeLocalStorage] => {
   return [getThemeLocalStorage, setThemeLocalStorage];
 };

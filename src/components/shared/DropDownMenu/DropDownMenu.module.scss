@@ -1,6 +1,4 @@
 .menu {
-  transition-duration: 0.5s;
-  transition-property: color, border-color;
   display: flex;
   flex-direction: column;
   gap: var(--s1);
@@ -18,20 +16,6 @@
 
 .input {
   display: none;
-
-  &:checked {
-    ~ .face {
-      .arrow {
-        transform: rotate(-90deg);
-      }
-    }
-
-    ~ .items {
-      height: fit-content;
-      opacity: 1;
-      display: flex;
-    }
-  }
 }
 
 .face {
@@ -47,17 +31,10 @@
 .arrow {
   position: absolute;
   right: 0;
-  transition: transform 0.5s ease;
 }
 
 .items {
-  display: none;
-  transition:
-    height,
-    opacity 0.5s ease;
-  height: 0px;
-  opacity: 0;
-  overflow: hidden;
+  display: flex;
   flex-direction: column;
   gap: var(--s1);
 }

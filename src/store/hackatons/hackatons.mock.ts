@@ -34,11 +34,9 @@ export const hackatonsMock = JSON.stringify([
     isOnline: false,
   },
   {
-    title:
-      "Международный хакатон. «Цифровой прорыв. Сезон: Искусственный интеллект» ",
+    title: "Международный хакатон. «Цифровой прорыв. Сезон: Искусственный интеллект» ",
     imageUrl: "hackatons/image.jpg",
-    description:
-      "Генерация научных статей при помощи искусственного интеллекта.",
+    description: "Генерация научных статей при помощи искусственного интеллекта.",
     descriptionShort: "Short Description",
     creator: "Creator",
     start_registration: "2023-11-18T10:38:08.692Z",

@@ -18,8 +18,6 @@ export const selectHakatons = createSelector(
   }),
 );
 
-export const selectActiveFilter = (state: RootState) =>
-  state.hackaton.activeFilter;
+export const selectActiveFilter = (state: RootState) => state.hackaton.activeFilter;
 
-export const selectHackatonsView = (state: RootState) =>
-  state.hackaton.gridView;
+export const selectHackatonsView = (state: RootState) => state.hackaton.gridView;

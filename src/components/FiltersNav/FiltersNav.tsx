@@ -10,9 +10,7 @@ import { FilterMenuButton } from "./FilterMenuButton";
 export const FiltersNav: FC = () => {
   return (
     <ul role="navigation" className={styles.filters}>
-      <li>
-        <FilterMenuButton />
-      </li>
+      <FilterMenuButton />
       <li>
         <Button variant="secondary" icon={<StarIcon />} textSize="small">
           Хакатоны для меня

@@ -1,7 +1,6 @@
 import { Jwt } from "../types/auth";
 
-export const checkAuthLocalStorage = () =>
-  !!localStorage.getItem("access_token");
+export const checkAuthLocalStorage = () => !!localStorage.getItem("access_token");
 export const setAuthLocalStorage = (tokens: Partial<Jwt>) => {
   if (tokens.access) {
     localStorage.setItem("access_token", tokens.access);

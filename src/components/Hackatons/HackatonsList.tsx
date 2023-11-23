@@ -1,12 +1,10 @@
 import { FC, useEffect } from "react";
 import classNames from "classnames";
+import { animated, useTransition } from "@react-spring/web";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
 
-import {
-  selectHackatonsView,
-  selectHakatons,
-} from "../../store/hackatons/hackatonSelectors";
+import { selectHackatonsView, selectHakatons } from "../../store/hackatons/hackatonSelectors";
 import { getHackatonsThunk } from "../../store/hackatons/getHackatonsThunk";
 import { HackatonCard } from "./Hackaton";
 import styles from "./Hackaton.module.scss";
@@ -16,10 +14,16 @@ import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors
 export const HackatonsList: FC = () => {
   const { loading, error, success, hakatons } = useAppSelector(selectHakatons);
   const view = useAppSelector(selectHackatonsView);
-
   const isOpenedFilterMenu = useAppSelector(selectIsOpenedFilterMenu);
 
   const dispatch = useAppDispatch();
+
+  const transition = useTransition(isOpenedFilterMenu, {
+    reset: true,
+    config: { duration: 100 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+  });
 
   useEffect(() => {
     if (!success) dispatch(getHackatonsThunk());
@@ -41,8 +45,8 @@ export const HackatonsList: FC = () => {
     [styles.twoColumns]: isOpenedFilterMenu,
   });
 
-  return (
-    <div className={className}>
+  return transition((animatedStyles) => (
+    <animated.div className={className} style={animatedStyles}>
       {hakatons.map((hakaton) => (
         <HackatonCard key={hakaton.title} meta={hakaton} />
       ))}
@@ -52,6 +56,6 @@ export const HackatonsList: FC = () => {
           Показать больше хакатонов
         </Button>
       </div>
-    </div>
-  );
+    </animated.div>
+  ));
 };

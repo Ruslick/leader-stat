@@ -6,10 +6,7 @@ interface ContainerWithAsideProps {
   main: ReactNode;
 }
 
-export const ContainerWithAside: FC<ContainerWithAsideProps> = ({
-  aside,
-  main,
-}) => {
+export const ContainerWithAside: FC<ContainerWithAsideProps> = ({ aside, main }) => {
   return (
     <div className={styles.container}>
       {aside}

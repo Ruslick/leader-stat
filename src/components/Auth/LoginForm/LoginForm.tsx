@@ -69,12 +69,7 @@ export const LoginForm: FC = () => {
           maxLength: 20,
         })}
       />
-      <Button
-        type="submit"
-        variant="secondary"
-        padding="big"
-        disabled={loading || !isValid}
-      >
+      <Button type="submit" variant="secondary" padding="big" disabled={loading || !isValid}>
         Продолжить
       </Button>
     </AuthForm>

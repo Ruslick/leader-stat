@@ -1,6 +1,7 @@
 import { FC, ReactNode, useId, useState } from "react";
 import { ArrowIcon } from "../icons/ArrowIcon";
 import styles from "./DropDownMenu.module.scss";
+import { DropDownMenuList } from "./DropDownMenuList";
 
 interface DropDownMenuProps {
   text: string;
@@ -27,8 +28,7 @@ export const DropDownMenu: FC<DropDownMenuProps> = ({ text, children }) => {
           <ArrowIcon />
         </div>
       </label>
-
-      <ul className={styles.items}>{children}</ul>
+      <DropDownMenuList isOpen={isOpen}>{children}</DropDownMenuList>
     </div>
   );
 };

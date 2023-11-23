@@ -7,12 +7,7 @@ import { ThemeSelector } from "../../ThemeSelector/ThemeSelector";
 export const FooterSecurity: FC = () => {
   return (
     <>
-      <Button
-        variant="link"
-        padding="no"
-        textSize="small"
-        icon={<TelegramIcon />}
-      >
+      <Button variant="link" padding="no" textSize="small" icon={<TelegramIcon />}>
         @LeaderStat
       </Button>
       <Text tag="p">© 2023 Все права защищены</Text>

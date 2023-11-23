@@ -24,11 +24,6 @@ export interface HackatonResponse extends HackatonBase {
   end: string;
 }
 
-export type HackatonsFilter =
-  | "all"
-  | "forme"
-  | "participate"
-  | "hidden"
-  | "favorite";
+export type HackatonsFilter = "all" | "forme" | "participate" | "hidden" | "favorite";
 
 export type HackatonsView = "list" | "grid";

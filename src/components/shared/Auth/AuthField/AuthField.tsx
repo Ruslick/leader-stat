@@ -7,8 +7,6 @@ interface AuthFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
 }
 
-export const AuthField = forwardRef<HTMLInputElement, AuthFieldProps>(
-  (props, ref) => {
-    return <input ref={ref} className={styles.field} {...props} />;
-  },
-);
+export const AuthField = forwardRef<HTMLInputElement, AuthFieldProps>((props, ref) => {
+  return <input ref={ref} className={styles.field} {...props} />;
+});

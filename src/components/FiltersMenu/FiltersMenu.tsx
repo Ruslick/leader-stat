@@ -1,41 +1,48 @@
-import { FC } from "react";
+import { animated, useTransition } from "@react-spring/web";
 import classNames from "classnames";
+import { FC } from "react";
 
-import styles from "./FiltersMenu.module.scss";
-import { ShowHiddenField } from "./ShowHiddenField";
-import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
+import { useAppSelector } from "../../hooks/store.hooks";
+import { selectAllFilters } from "../../store/filters/filtersSelectors";
 import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors";
 import { DropDownMenu } from "../shared/DropDownMenu/DropDownMenu";
-import { selectCitiesFilters } from "../../store/filters/filtersSelectors";
-import { toggleCity } from "../../store/filters/filtersSlice";
-import { Button } from "../shared/Button/Button";
+import styles from "./FiltersMenu.module.scss";
+import { ShowHiddenField } from "./ShowHiddenField";
+import { StandartFilterMenuDropDown } from "./StandartFilterMenuDropDown";
 
 export const FiltersMenu: FC = () => {
   const open = useAppSelector(selectIsOpenedFilterMenu);
-  const cities = useAppSelector(selectCitiesFilters);
-  const dispatch = useAppDispatch();
+  const { cities, formats, roles } = useAppSelector(selectAllFilters);
 
-  return (
-    <div className={classNames(styles.menu, { [styles.open]: open })}>
-      <DropDownMenu text="Город">
-        {cities.map(([city, isSelected]) => (
-          <Button
-            variant="filter"
-            padding="small"
-            textSize="small"
-            radius="small"
-            key={city}
-            active={isSelected}
-            onClick={() => {
-              dispatch(toggleCity(city));
-            }}
-          >
-            {city}
-          </Button>
-        ))}
-      </DropDownMenu>
+  const transitions = useTransition(open, {
+    from: { opacity: 0, x: -100 },
+    enter: { opacity: 1, x: 0 },
+    leave: { opacity: 0, x: -100, position: "absolute" },
+  });
 
-      <ShowHiddenField />
-    </div>
+  return transitions(
+    (animatedStyles, item) =>
+      item && (
+        <animated.div className={classNames(styles.menu)} style={animatedStyles}>
+          <StandartFilterMenuDropDown filterSection="cities" text="Города" filters={cities} />
+          <StandartFilterMenuDropDown filterSection="formats" text="Формат" filters={formats} />
+
+          {/* TODO */}
+          <DropDownMenu text="Дата">
+            <input type="date" />
+            <input type="date" />
+            <input type="date" />
+            <input type="date" />
+          </DropDownMenu>
+
+          {/* TODO */}
+          <DropDownMenu text="Длительность">
+            <input type="range" />
+          </DropDownMenu>
+
+          <StandartFilterMenuDropDown filterSection="roles" text="Роли" filters={roles} />
+          <ShowHiddenField />
+        </animated.div>
+      ),
   );
 };

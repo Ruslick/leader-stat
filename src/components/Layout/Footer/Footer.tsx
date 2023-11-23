@@ -12,10 +12,8 @@ export const Footer: FC = () => {
       <LogoMini />
       <section className={styles.bottom}>
         <Text tag="p">
-          LeaderStart – агрегатор хакатонов на котором можно найти команду для
-          состязаний,
-          <br /> влиться в комьюнити и узнать о последних новостях из мира
-          хакатонов.
+          LeaderStart – агрегатор хакатонов на котором можно найти команду для состязаний,
+          <br /> влиться в комьюнити и узнать о последних новостях из мира хакатонов.
         </Text>
         <div className={styles.linksWrapper}>
           <div className={styles.links}>

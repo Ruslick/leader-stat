@@ -1,23 +1,18 @@
 import { FC } from "react";
-import { animated, useSpring } from "@react-spring/web";
 
-import { Button } from "../shared/Button/Button";
-import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
-import { BurgerFilterIcon } from "../shared/icons/actions/BurgerFilterIcon";
-import { toggleFilterMenu } from "../../store/settings/settingsSlice";
+import { useAppDispatch, useAppSelector } from "../../shared/hooks/store.hooks";
 import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors";
+import { toggleFilterMenu } from "../../store/settings/settingsSlice";
+import { Button } from "../../shared/ui/Button/Button";
+import { BurgerFilterIcon } from "../../shared/ui/icons/actions/BurgerFilterIcon";
+import { Container } from "../../shared/ui/_layout/Container/Container";
 
 export const FilterMenuButton: FC = () => {
   const dispatch = useAppDispatch();
   const active = useAppSelector(selectIsOpenedFilterMenu);
 
-  const props = useSpring({
-    from: { paddingRight: 0 },
-    to: { paddingRight: active ? 110 : 0 },
-  });
-
   return (
-    <animated.li style={props}>
+    <Container mr={active ? 20 : 0}>
       <Button
         variant="secondary"
         textSize="small"
@@ -27,6 +22,6 @@ export const FilterMenuButton: FC = () => {
       >
         Фильтр
       </Button>
-    </animated.li>
+    </Container>
   );
 };

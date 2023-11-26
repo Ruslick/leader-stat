@@ -1,0 +1,25 @@
+.paper {
+  overflow: hidden;
+  position: relative;
+  min-width: 300px;
+  &.absolute {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.primary {
+  background-color: var(--bg);
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.card {
+  background-color: var(--primary);
+
+  &.active {
+    background-color: var(--secondary);
+  }
+}

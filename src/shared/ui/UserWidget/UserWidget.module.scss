@@ -1,0 +1,15 @@
+.user {
+  display: flex;
+  align-items: center;
+  padding-right: var(--s11);
+}
+
+.avatar {
+  position: absolute;
+  right: var(--s1);
+
+  width: var(--s11);
+  height: var(--s11);
+
+  border-radius: 50%;
+}

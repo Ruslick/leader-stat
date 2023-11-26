@@ -1,16 +1,16 @@
 import { FC } from "react";
 
-import styles from "./Header.module.scss";
-import { Navbar } from "../../shared/Navbar/Navbar";
-import { UserWidget } from "../../shared/UserWidget/UserWidget";
-import { Logo } from "../../shared/icons/logos/Logo";
+import { UserWidget } from "../../../shared/ui/UserWidget/UserWidget";
+import { Logo } from "../../../shared/ui/icons/logos/Logo";
+import { Flex } from "../../../shared/ui/_layout/Flex/Flex";
+import { HeaderNavbar } from "../../HeaderNavbar/HeaderNavbar";
 
 export const Header: FC = () => {
   return (
-    <header className={styles.header}>
+    <Flex row justify="space-between">
       <Logo />
-      <Navbar />
+      <HeaderNavbar />
       <UserWidget id="Admin" avatarUrl="https://i.pravatar.cc/100" />
-    </header>
+    </Flex>
   );
 };

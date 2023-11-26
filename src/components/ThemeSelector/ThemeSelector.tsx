@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from "react";
-import { themes, Themes } from "../../constants/themes";
-import { useTheme } from "../../hooks/themes/useTheme";
+import { Themes, themes } from "../../shared/constants/themes";
+import { useTheme } from "../../shared/hooks/themes/useTheme";
 
 export const ThemeSelector: FC = () => {
   const [getTheme, setTheme] = useTheme();

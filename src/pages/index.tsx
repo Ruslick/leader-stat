@@ -2,25 +2,29 @@ import { createHashRouter } from "react-router-dom";
 import { LogoutButton } from "../components/Auth/LogoutButton/LogoutButton";
 import { PrivateRoute } from "../components/Auth/PrivateRoute/PrivateRoute";
 import { Layout } from "../components/Layout/Layout/Layout";
-import { AuthLayout } from "../components/shared/Auth/AuthLayout/AuthLayout";
-import { Paths } from "../constants/paths";
-import { HomePage } from "./Home/Home";
-import { Kit } from "./Kit/Kit";
 import { Login } from "./Login/Login";
+import { Register } from "./Register/Register";
+import { Paths } from "../shared/constants/paths";
+import { AuthLayout } from "../shared/ui/Auth/AuthLayout/AuthLayout";
+import { HackatonPage } from "./Hackaton/Hackaton";
+import { HackatonsPage } from "./Hackatons/Hackatons";
 
 export const router = createHashRouter([
-  { path: Paths.Kit, element: <Kit /> },
   {
-    path: "/",
     element: <PrivateRoute />,
     children: [
       {
         element: <Layout />,
         children: [
           {
-            path: Paths.Home,
-            element: <HomePage />,
+            path: Paths.Hackatons,
+            element: <HackatonsPage />,
           },
+          {
+            path: `${Paths.Hackatons}/:id`,
+            element: <HackatonPage />,
+          },
+
           {
             path: Paths.Market,
             element: <div>Market</div>,
@@ -47,7 +51,6 @@ export const router = createHashRouter([
   },
 
   {
-    path: "/",
     element: <PrivateRoute anonimous />,
     children: [
       {
@@ -56,6 +59,10 @@ export const router = createHashRouter([
           {
             path: Paths.Login,
             element: <Login />,
+          },
+          {
+            path: Paths.Registration,
+            element: <Register />,
           },
         ],
       },

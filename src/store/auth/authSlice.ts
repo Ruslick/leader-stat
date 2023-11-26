@@ -1,12 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  checkAuthLocalStorage,
-  removeAuthLocalStorage,
-  setAuthLocalStorage,
-} from "../../utils/auth-controller";
-import { createError } from "../../utils/createError";
-import { loginUser } from "./loginUser";
-import { ApiError } from "../../types/general";
+
+import { loginUserThunk } from "./loginUser";
+import { ApiError } from "../../shared/types/general";
+import { checkAuthLocalStorage, removeAuthLocalStorage, setAuthLocalStorage } from "../../shared/utils/auth-controller";
+import { createError } from "../../shared/utils/error-factories";
 
 interface AuthState {
   loading: boolean;
@@ -44,13 +41,13 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUser.pending, (state) => {
+      .addCase(loginUserThunk.pending, (state) => {
         return {
           ...state,
           loading: true,
         };
       })
-      .addCase(loginUser.fulfilled, (state, { payload }) => {
+      .addCase(loginUserThunk.fulfilled, (state, { payload }) => {
         setAuthLocalStorage(payload);
         return {
           ...state,
@@ -58,7 +55,7 @@ export const authSlice = createSlice({
           success: true,
         };
       })
-      .addCase(loginUser.rejected, (state, { payload }) => {
+      .addCase(loginUserThunk.rejected, (state, { payload }) => {
         return {
           ...state,
           loading: false,

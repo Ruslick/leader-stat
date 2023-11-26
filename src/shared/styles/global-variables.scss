@@ -1,0 +1,35 @@
+:root {
+  --font-family: "Open Sans", sans-serif;
+
+  --s1: 4px;
+  --s2: calc(var(--s1) * 2); // 8px
+  --s3: calc(var(--s1) * 3); // 12px
+  --s4: calc(var(--s1) * 4); // 16px
+  --s5: calc(var(--s1) * 5); // 20px
+  --s6: calc(var(--s1) * 6); // 24px
+  --s7: calc(var(--s1) * 7); // 28px
+  --s8: calc(var(--s1) * 8); // 32px
+  --s9: calc(var(--s1) * 9); // 36px
+  --s10: calc(var(--s1) * 10); // 40px
+  --s11: calc(var(--s1) * 11); // 44px
+  --s12: calc(var(--s1) * 12); // 48px
+  --s13: calc(var(--s1) * 13); // 52px
+  --s14: calc(var(--s1) * 14); // 56px
+  --s15: calc(var(--s1) * 15); // 60px
+  --s16: calc(var(--s1) * 16); // 64px
+  --s20: calc(var(--s1) * 20); // 80px
+  --s22: calc(var(--s1) * 22); // 88px
+  --s24: calc(var(--s1) * 24); // 96px
+  --s28: calc(var(--s1) * 28); // 112px
+  --s32: calc(var(--s1) * 32); // 128px
+  --s36: calc(var(--s1) * 36); // 144px
+  --s40: calc(var(--s1) * 40); // 160px
+  --s42: calc(var(--s1) * 42); // 168px
+  --s44: calc(var(--s1) * 44); // 176px
+
+  --s50: calc(var(--s1) * 50); // 200px
+
+  --fs1: 14px;
+  --fs2: 19px;
+  --fs3: 28px;
+}

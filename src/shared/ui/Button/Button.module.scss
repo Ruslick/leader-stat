@@ -1,0 +1,133 @@
+@import "../../styles/button";
+
+.primary {
+  @extend %standart-button;
+
+  background-color: var(--accent);
+  color: var(--text-primary);
+
+  &:hover {
+    background-color: var(--text-primary);
+    color: var(--bg);
+  }
+
+  &.active {
+    background-color: var(--text-primary);
+    color: var(--bg);
+  }
+}
+
+.inverted {
+  @extend %standart-button;
+
+  background-color: var(--text-primary);
+  color: var(--bg);
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  &.active {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+}
+
+.secondary {
+  @extend %standart-button;
+
+  background-color: var(--primary);
+  color: var(--text-secondary);
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  &.active {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+}
+
+.transparent {
+  @extend %standart-button;
+
+  background-color: transparent;
+  color: var(--text-primary);
+
+  &:hover {
+    background-color: var(--accent);
+  }
+
+  &.active {
+    background-color: var(--accent);
+  }
+}
+
+.link {
+  @extend %standart-button;
+
+  background-color: transparent;
+  color: var(--text-primary);
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.outline {
+  @extend %standart-button;
+
+  background-color: transparent;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+
+  &.active {
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+}
+
+.filter {
+  @extend %standart-button;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-weight: 400;
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  &.active {
+    color: var(--bg);
+    background-color: var(--text-primary);
+  }
+}
+
+.mediaIconButton {
+  @extend %button-base;
+  display: flex;
+
+  padding: var(--s3);
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  color: var(--bg);
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--text-primary);
+  }
+}
+
+.primaryIconButton {
+  @extend %button-base;
+
+  background-color: transparent;
+  color: var(--text-primary);
+
+  &:hover {
+    color: var(--accent);
+  }
+}

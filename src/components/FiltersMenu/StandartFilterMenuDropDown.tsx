@@ -1,8 +1,8 @@
 import { FC, memo } from "react";
-import { DropDownMenu } from "../shared/DropDownMenu/DropDownMenu";
-import { useAppDispatch } from "../../hooks/store.hooks";
+import { DropDownMenu } from "../../shared/ui/DropDownMenu/DropDownMenu";
+import { useAppDispatch } from "../../shared/hooks/store.hooks";
 import { FiltersState, toggleFilter } from "../../store/filters/filtersSlice";
-import { Button } from "../shared/Button/Button";
+import { Button } from "../../shared/ui/Button/Button";
 
 interface StandartFilterMenuDropDownProps {
   text: string;

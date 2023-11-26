@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { Button } from "../shared/Button/Button";
-import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
+import { Button } from "../../shared/ui/Button/Button";
+import { useAppDispatch, useAppSelector } from "../../shared/hooks/store.hooks";
 import { selectHackatonsView } from "../../store/hackatons/hackatonSelectors";
 import { toggleHackatonView } from "../../store/hackatons/hackatonSlice";
-import { RowViewIcon } from "../shared/icons/actions/RowViewIcon";
-import { ColumnsViewIcon } from "../shared/icons/actions/ColumnsViewIcon";
+import { RowViewIcon } from "../../shared/ui/icons/actions/RowViewIcon";
+import { ColumnsViewIcon } from "../../shared/ui/icons/actions/ColumnsViewIcon";
 
 export const ViewButton: FC = () => {
   const view = useAppSelector(selectHackatonsView);

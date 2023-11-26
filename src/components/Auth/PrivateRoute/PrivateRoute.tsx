@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { Paths } from "../../../constants/paths";
-import { useAppSelector } from "../../../hooks/store.hooks";
+import { useAppSelector } from "../../../shared/hooks/store.hooks";
 import { selectAuth } from "../../../store/auth/authSelectors";
+import { Paths } from "../../../shared/constants/paths";
 
 interface PrivateRouteProps {
   anonimous?: boolean;
 }
 
 export const PrivateRoute: FC<PrivateRouteProps> = ({ anonimous = false }) => {
-  const { success, loading } = useAppSelector(selectAuth);
+  const { loading, success } = useAppSelector(selectAuth);
 
   if (loading) {
     return <Outlet />;
@@ -19,7 +19,7 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({ anonimous = false }) => {
     return <Navigate to={Paths.Login} />;
   }
   if (anonimous && success) {
-    return <Navigate to={Paths.Home} />;
+    return <Navigate to={Paths.Hackatons} />;
   }
 
   return <Outlet />;

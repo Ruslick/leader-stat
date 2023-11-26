@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface FiltersState {
+export interface FiltersState {
   cities: {
+    [key: string]: boolean;
+  };
+  roles: {
+    [key: string]: boolean;
+  };
+  formats: {
     [key: string]: boolean;
   };
 }
@@ -14,22 +20,36 @@ const initialState: FiltersState = {
     Екатеринбург: false,
     "Нижний Новгород": false,
   },
+  formats: {
+    isOnline: false,
+    isOffline: false,
+  },
+  roles: {
+    Разработчик: false,
+    Тестировщик: false,
+    Аналитик: false,
+    Дизайнер: false,
+  },
 };
 
 export const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    toggleCity: (state, action: { payload: string }) => {
+    toggleFilter: (
+      state,
+      { payload }: { payload: { filterSection: keyof FiltersState; filter: string } },
+    ) => {
+      const { filterSection, filter } = payload;
       return {
         ...state,
-        cities: {
-          ...state.cities,
-          [action.payload]: !state.cities[action.payload],
+        [filterSection]: {
+          ...state[filterSection],
+          [filter]: !state[filterSection][filter],
         },
       };
     },
   },
 });
 
-export const { toggleCity } = filtersSlice.actions;
+export const { toggleFilter } = filtersSlice.actions;

@@ -1,41 +1,41 @@
 import { FC } from "react";
-import classNames from "classnames";
 
-import styles from "./FiltersMenu.module.scss";
+
+import { selectAllFilters } from "../../store/filters/filtersSelectors";
+import { DropDownMenu } from "../../shared/ui/DropDownMenu/DropDownMenu";
+import { Flex } from "../../shared/ui/_layout/Flex/Flex";
 import { ShowHiddenField } from "./ShowHiddenField";
-import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
-import { selectIsOpenedFilterMenu } from "../../store/settings/settingsSelectors";
-import { DropDownMenu } from "../shared/DropDownMenu/DropDownMenu";
-import { selectCitiesFilters } from "../../store/filters/filtersSelectors";
-import { toggleCity } from "../../store/filters/filtersSlice";
-import { Button } from "../shared/Button/Button";
+import { StandartFilterMenuDropDown } from "./StandartFilterMenuDropDown";
+import { Container } from "../../shared/ui/_layout/Container/Container";
+import { useAppSelector } from "../../shared/hooks/store.hooks";
 
 export const FiltersMenu: FC = () => {
-  const open = useAppSelector(selectIsOpenedFilterMenu);
-  const cities = useAppSelector(selectCitiesFilters);
-  const dispatch = useAppDispatch();
+  const { cities, formats, roles } = useAppSelector(selectAllFilters);
 
   return (
-    <div className={classNames(styles.menu, { [styles.open]: open })}>
-      <DropDownMenu text="Город">
-        {cities.map(([city, isSelected]) => (
-          <Button
-            variant="filter"
-            padding="small"
-            textSize="small"
-            radius="small"
-            key={city}
-            active={isSelected}
-            onClick={() => {
-              dispatch(toggleCity(city));
-            }}
-          >
-            {city}
-          </Button>
-        ))}
-      </DropDownMenu>
+    <Container pr={10} w={"245px"}>
+      <Flex gap={8}>
+        <Flex>
+          <StandartFilterMenuDropDown filterSection="cities" text="Города" filters={cities} />
+          <StandartFilterMenuDropDown filterSection="formats" text="Формат" filters={formats} />
 
-      <ShowHiddenField />
-    </div>
+          {/* TODO */}
+          <DropDownMenu text="Дата">
+            <input type="date" />
+            <input type="date" />
+            <input type="date" />
+            <input type="date" />
+          </DropDownMenu>
+
+          {/* TODO */}
+          <DropDownMenu text="Длительность">
+            <input type="range" />
+          </DropDownMenu>
+
+          <StandartFilterMenuDropDown filterSection="roles" text="Роли" filters={roles} />
+        </Flex>
+        <ShowHiddenField />
+      </Flex>
+    </Container>
   );
 };

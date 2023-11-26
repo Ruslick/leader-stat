@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+
+  padding-bottom: var(--s3);
+  border-bottom: 1px solid;
+  color: var(--text-primary);
+  border-color: var(--highlight);
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.input {
+  display: none;
+}
+
+.face {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.text {
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}

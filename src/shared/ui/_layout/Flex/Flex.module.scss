@@ -1,0 +1,17 @@
+.flex {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.grow {
+    flex-grow: 1;
+  }
+}

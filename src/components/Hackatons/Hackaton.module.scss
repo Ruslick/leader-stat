@@ -1,12 +1,13 @@
 .container {
-  transition: all 0.5s ease;
   display: grid;
-
   position: relative;
   gap: var(--s3);
 
+  min-height: 600px;
+
   &.grid {
     grid-template-columns: repeat(3, 1fr);
+
     &.twoColumns {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -17,52 +18,10 @@
   }
 }
 
-.hackaton {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s3);
-  transition: all 0.5s ease;
-  cursor: pointer;
-  padding: var(--s4) var(--s6);
-  border-radius: var(--s6);
-  background-color: var(--primary);
-
-  &.active {
-    background-color: var(--secondary);
-  }
-}
-
-.roles {
-  display: flex;
-  gap: var(--s2);
-  flex-wrap: wrap;
-}
-
-.bottomMenu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto; // Убрать когда нужно будет переделывать сетку
-}
-
-.actions {
-  display: flex;
-  gap: var(--s2); // Починить когда появяться нормальные свгшки
-}
-
 .overlay {
   position: absolute;
   bottom: 0;
   background: linear-gradient(180deg, transparent, var(--bg));
   width: 100%;
   height: var(--s50);
-}
-
-.moreButtonWrapper {
-  position: absolute;
-  bottom: 0;
-
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }

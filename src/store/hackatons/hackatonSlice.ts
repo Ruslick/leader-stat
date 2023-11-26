@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ApiError } from "../../types/general";
-import { createError } from "../../utils/createError";
-import { Hackaton, HackatonsFilter, HackatonsView } from "../../types/hackaton";
 import { getHackatonsThunk } from "./getHackatonsThunk";
+import { ApiError } from "../../shared/types/general";
+import { Hackaton, HackatonsFilter, HackatonsView } from "../../shared/types/hackaton";
+import { createError } from "../../shared/utils/error-factories";
 
 export interface HakatonsState {
   loading: boolean;

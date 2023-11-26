@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { Navigate, createHashRouter } from "react-router-dom";
 import { LogoutButton } from "../components/Auth/LogoutButton/LogoutButton";
 import { PrivateRoute } from "../components/Auth/PrivateRoute/PrivateRoute";
 import { Layout } from "../components/Layout/Layout/Layout";
@@ -10,6 +10,10 @@ import { HackatonPage } from "./Hackaton/Hackaton";
 import { HackatonsPage } from "./Hackatons/Hackatons";
 
 export const router = createHashRouter([
+  {
+    path: "/",
+    element: <Navigate to={Paths.Hackatons} />,
+  },
   {
     element: <PrivateRoute />,
     children: [

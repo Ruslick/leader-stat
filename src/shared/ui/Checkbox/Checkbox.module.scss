@@ -1,13 +1,17 @@
 .checkbox {
+  transition: background-color 0.3s ease;
+
   display: flex;
   align-items: center;
-  position: relative;
+  padding: 1px;
+
   min-width: var(--s10);
   width: var(--s10);
-  height: var(--s6);
+  height: fit-content;
   border-radius: var(--s3);
   background-color: var(--text-primary);
   cursor: pointer;
+
 
   &.checked {
     background-color: var(--accent);
@@ -15,17 +19,21 @@
 
   &:hover {
     & .switcher {
+      transition: width 0.3s ease;
       width: var(--s7);
     }
   }
 }
 
 .switcher {
+  transition: background-color 0.3s ease;
   background-color: var(--bg);
   height: calc(var(--s6) - 2px);
   width: calc(var(--s6) - 2px);
   border-radius: var(--s6);
-  margin: 1px;
+
+  margin-left: 0px;
+
 
   &.checked {
     margin-left: auto;

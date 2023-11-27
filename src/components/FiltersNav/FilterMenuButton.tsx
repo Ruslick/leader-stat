@@ -12,7 +12,7 @@ export const FilterMenuButton: FC = () => {
   const active = useAppSelector(selectIsOpenedFilterMenu);
 
   return (
-    <Container mr={active ? 20 : 0}>
+    <Container pr={active ? 20 : 0}>
       <Button
         variant="secondary"
         textSize="small"

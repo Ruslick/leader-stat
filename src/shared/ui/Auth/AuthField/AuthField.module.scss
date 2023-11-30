@@ -23,4 +23,8 @@
   line-height: 160%;
   color: var(--highlight);
   font-family: var(--font-family);
+
+  &.error {
+    color: var(--accent);
+  }
 }

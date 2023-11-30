@@ -1,27 +1,25 @@
 import { InputHTMLAttributes, forwardRef, useId } from "react";
-import ReactInputMask from "react-input-mask";
+import cx from "classnames";
+import { FieldError } from "react-hook-form";
 
 import styles from "./AuthField.module.scss";
+import { Flex } from "../../_layout/Flex/Flex";
 
 interface AuthFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   autoComplete: string;
   disabled?: boolean;
   label: string;
-  mask?: string;
+  error?: FieldError;
 }
 
-export const AuthField = forwardRef<HTMLInputElement, AuthFieldProps>((props, ref) => {
+export const AuthField = forwardRef<HTMLInputElement, AuthFieldProps>(({ error, label, ...props }, ref) => {
   const id = useId();
   return (
-    <div>
-      <label className={styles.label} htmlFor={id}>
-        {props.label}
+    <Flex gap={0}>
+      <label className={cx(styles.label, { [styles.error]: error })} htmlFor={id}>
+        {label}
       </label>
-      {props.mask ? (
-        <ReactInputMask mask={props.mask} className={styles.field} {...props} />
-      ) : (
-        <input id={id} ref={ref} className={styles.field} {...props} />
-      )}
-    </div>
+      <input id={id} ref={ref} className={styles.field} {...props} />
+    </Flex>
   );
 });

@@ -4,18 +4,18 @@ import { useForm } from "react-hook-form";
 import { selectAuth } from "../../../store/auth/authSelectors";
 import { registerUserThunk } from "../../../store/auth/registerUserThunk";
 
-import { AlternativeLogins } from "../AlternativeLogins/AlternativeLogins";
-import { useAppDispatch, useAppSelector } from "../../../shared/hooks/store.hooks";
-import { AuthForm } from "../../../shared/ui/Auth/AuthForm/AuthForm";
-import { Flex } from "../../../shared/ui/_layout/Flex/Flex";
-import { Text } from "../../../shared/ui/Text/Text";
-import { AuthFormAction } from "../../../shared/ui/Auth/AuthFormAction/AuthFormAction";
-import { AuthField } from "../../../shared/ui/Auth/AuthField/AuthField";
 import { Paths } from "../../../shared/constants/paths";
-import { Button } from "../../../shared/ui/Button/Button";
-import { AuthDivider } from "../../../shared/ui/Auth/AuthDivider/AuthDivider";
-import regex from "../../../shared/constants/regex";
+import { useAppDispatch, useAppSelector } from "../../../shared/hooks/store.hooks";
 import { SignUpValues } from "../../../shared/types/auth/auth";
+import { AuthDivider } from "../../../shared/ui/Auth/AuthDivider/AuthDivider";
+import { AuthField } from "../../../shared/ui/Auth/AuthField/AuthField";
+import { AuthForm } from "../../../shared/ui/Auth/AuthForm/AuthForm";
+import { AuthFormAction } from "../../../shared/ui/Auth/AuthFormAction/AuthFormAction";
+import { Button } from "../../../shared/ui/Button/Button";
+import { Text } from "../../../shared/ui/Text/Text";
+import { Flex } from "../../../shared/ui/_layout/Flex/Flex";
+import { AlternativeLogins } from "../AlternativeLogins/AlternativeLogins";
+import { registerConfig } from "./registerConfig";
 
 export const RegisterEmailForm: FC = () => {
   const { loading, error } = useAppSelector(selectAuth);
@@ -23,7 +23,7 @@ export const RegisterEmailForm: FC = () => {
   const {
     handleSubmit,
     register,
-    formState: { isValid },
+    formState: { errors },
     setError,
     setFocus,
     getValues,
@@ -43,64 +43,36 @@ export const RegisterEmailForm: FC = () => {
     }
   }, [error, setError]);
 
+  const fields = registerConfig.map(({ config, ...props }) => {
+    return (
+      <AuthField
+        error={errors[props.name]}
+        {...props}
+        {...register(props.name, {
+          ...config,
+          validate: props.name === "repeat_password" ? (value) => getValues("password") === value : undefined,
+        })}
+      />
+    );
+  });
+
   return (
     <AuthForm onSubmit={onSubmit}>
       <Flex>
         <Text tag="h1">Создать аккаунт</Text>
-        <AuthFormAction actionText="Создать аккаунт." to={Paths.Login}>
+        <AuthFormAction actionText="Войти." to={Paths.Login}>
           У вас уже есть аккаунт?
         </AuthFormAction>
       </Flex>
       <Flex gap={5}>
-        <AuthField
-          label="Адрес электронной почты"
-          autoComplete="email"
-          type="email"
-          placeholder="example@ex.com"
-          disabled={loading}
-          {...register("email", { required: true, pattern: regex.email })}
-        />
-        <AuthField
-          autoComplete="phone"
-          type="tel"
-          inputMode="numeric"
-          label="Телефон"
-          disabled={loading}
-          mask="+7 (999) 999-99-99"
-          placeholder="+7 (___) ___-__-__"
-          {...register("phone", {
-            required: false,
-          })}
-        />
-        <AuthField
-          autoComplete="username"
-          type="text"
-          label="Имя пользователя"
-          placeholder="Разрушитель планет"
-          disabled={loading}
-          {...register("username", { required: true, minLength: 3, maxLength: 20 })}
-        />
-        <AuthField
-          autoComplete="password"
-          type="password"
-          label="Пароль"
-          disabled={loading}
-          {...register("password", { required: true })}
-        />
-        <AuthField
-          autoComplete="password"
-          type="password"
-          label="Повторите пароль"
-          disabled={loading}
-          {...register("repeat_password")}
-        />
-
+        {fields}
         <Flex row justify="center">
           <Button
             type="submit"
             variant="secondary"
             padding="big"
-            disabled={loading || !isValid || getValues("password") !== getValues("repeat_password")}
+            w={"100%"}
+            disabled={loading || getValues("password") !== getValues("repeat_password")}
           >
             Продолжить
           </Button>

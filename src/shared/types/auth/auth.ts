@@ -4,11 +4,12 @@ export interface SignInValues {
 }
 
 export interface SignUpValues {
-  phone: string;
   email: string;
   password: string;
+  first_name: string;
+  last_name: string;
+  middle_name: string;
   repeat_password: string;
-  username: string;
 }
 
 export interface SignUpPassword {

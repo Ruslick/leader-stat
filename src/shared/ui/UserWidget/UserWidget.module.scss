@@ -1,12 +1,6 @@
-.user {
-  display: flex;
-  align-items: center;
-  padding-right: var(--s11);
-}
-
 .avatar {
   position: absolute;
-  right: var(--s1);
+  right: -16px;
 
   width: var(--s11);
   height: var(--s11);

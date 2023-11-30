@@ -6,6 +6,10 @@
   outline: none;
   transition: all 0.5s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
 
   &:disabled {
     pointer-events: none;
@@ -15,11 +19,6 @@
 
 %button-with-icon {
   &.withIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--s2);
-
     & svg {
       transform: scale(0.7);
     }

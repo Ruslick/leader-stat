@@ -1,4 +1,10 @@
 .container {
   position: relative;
-  transition:  0.2s ease-in-out;
+
+  &.absolute {
+    position: absolute;
+    z-index: 1;
+  }
+
+  
 }

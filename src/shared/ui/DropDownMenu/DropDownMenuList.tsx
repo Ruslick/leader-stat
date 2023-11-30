@@ -6,5 +6,5 @@ interface DropDownMenuListProps {
 }
 
 export const DropDownMenuList: FC<DropDownMenuListProps> = memo(({ children }) => {
-  return <Flex gap={0}>{children}</Flex>;
+  return <Flex gap={0} align="start">{children}</Flex>;
 });

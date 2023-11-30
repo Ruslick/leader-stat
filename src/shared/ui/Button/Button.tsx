@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { FC, ReactNode, memo } from "react";
 
+import { Paths } from "../../constants/paths";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
@@ -9,11 +10,11 @@ interface ButtonProps {
   variant?: "primary" | "inverted" | "secondary" | "transparent" | "link" | "outline" | "filter";
   padding?: "no" | "small" | "normal" | "big";
   textSize?: "small" | "normal";
-  radius?: "no" |"small" | "normal";
+  radius?: "no" | "small" | "normal";
   type?: "button" | "submit" | "reset";
   icon?: ReactNode;
   w?: number | string;
-
+  to?: Paths;
   disabled?: boolean;
   active?: boolean;
 }

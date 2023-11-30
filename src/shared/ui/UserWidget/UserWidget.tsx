@@ -1,9 +1,15 @@
-import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { FC, useState } from "react";
 
-import styles from "./UserWidget.module.scss";
+import { logout } from "../../../store/auth/authSlice";
+import { useAppDispatch } from "../../hooks/store.hooks";
 import { Button } from "../Button/Button";
+import { Container } from "../_layout/Container/Container";
+import { Flex } from "../_layout/Flex/Flex";
+import { Paper } from "../_layout/Paper/Paper";
+import styles from "./UserWidget.module.scss";
+import { ThemeSelector } from "../../../components/ThemeSelector/ThemeSelector";
 import { Paths } from "../../constants/paths";
+import { ButtonLink } from "../_button/ButtonLink";
 
 interface UserWidgetProps {
   id: string;
@@ -11,15 +17,31 @@ interface UserWidgetProps {
 }
 
 export const UserWidget: FC<UserWidgetProps> = ({ id, avatarUrl }) => {
-  const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
+
   return (
-    <Link to={Paths.Profile}>
-      <Button variant="transparent" active={pathname === Paths.Profile} padding="normal">
-        <div className={styles.user}>
-          {id}
-          <img className={styles.avatar} src={avatarUrl} alt="user_avatar" />
-        </div>
-      </Button>
-    </Link>
+    <Paper p={0} variant="card" w={"fit-content"}>
+      <Flex gap={0} w={"fit-content"}>
+        <Button variant="transparent" padding="normal" radius="no" w={"100%"} onClick={() => setIsOpen(!isOpen)}>
+          <Flex row align="center">
+            <Container mr={10}>{id}</Container>
+            <img className={styles.avatar} src={avatarUrl} alt="user_avatar" />
+          </Flex>
+        </Button>
+
+        {isOpen && (
+          <Container m={3}>
+            <Flex justify="center" align="center">
+              <ButtonLink to={Paths.Profile}>Профиль</ButtonLink>
+              <ThemeSelector />
+              <Button w={"100%"} textSize="small" padding="small" onClick={() => dispatch(logout())}>
+                Выйти
+              </Button>
+            </Flex>
+          </Container>
+        )}
+      </Flex>
+    </Paper>
   );
 };

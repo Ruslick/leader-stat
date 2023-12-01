@@ -31,6 +31,7 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       removeAuthLocalStorage();
+      
       return {
         ...state,
         loading: false,

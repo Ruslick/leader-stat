@@ -15,15 +15,15 @@ export const router = createHashRouter([
     element: <Navigate to={Paths.Hackatons} />,
   },
   {
-    element: <PrivateRoute />,
+    element: <Layout />,
     children: [
       {
-        element: <Layout />,
+        path: Paths.Hackatons,
+        element: <HackatonsPage />,
+      },
+      {
+        element: <PrivateRoute />,
         children: [
-          {
-            path: Paths.Hackatons,
-            element: <HackatonsPage />,
-          },
           {
             path: `${Paths.Hackatons}/:id`,
             element: <HackatonPage />,

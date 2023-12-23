@@ -1,5 +1,4 @@
 import { Navigate, createHashRouter } from "react-router-dom";
-import { LogoutButton } from "../components/Auth/LogoutButton/LogoutButton";
 import { PrivateRoute } from "../components/Auth/PrivateRoute/PrivateRoute";
 import { Layout } from "../components/Layout/Layout/Layout";
 import { Login } from "./Login/Login";
@@ -8,6 +7,7 @@ import { Paths } from "../shared/constants/paths";
 import { AuthLayout } from "../shared/ui/Auth/AuthLayout/AuthLayout";
 import { HackatonPage } from "./Hackaton/Hackaton";
 import { HackatonsPage } from "./Hackatons/Hackatons";
+import { ProfilePage } from "./Profile/Profile.tsx";
 
 export const router = createHashRouter([
   {
@@ -39,11 +39,7 @@ export const router = createHashRouter([
           },
           {
             path: Paths.Profile,
-            element: (
-              <div>
-                <LogoutButton />
-              </div>
-            ),
+            element: <ProfilePage />,
           },
           {
             path: Paths.News,

@@ -7,3 +7,5 @@ export const HACKATON_URL = `${SERVER_URL}/hackaton/get_hackatons/`;
 
 export const USERLIST_URL = `${SERVER_URL}/users/userlist/`;
 export const REGISTER_USER_URL = `${SERVER_URL}/users/user_registration/`;
+
+export const PROFILE_URL = `${SERVER_URL}/users/my_profile`;

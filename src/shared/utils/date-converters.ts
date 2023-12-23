@@ -1,7 +1,7 @@
 import { Hackaton, HackatonDTO } from "../types/hackaton";
 
 export const getMonthName = (date: Date) => {
-  const monts = {
+  const months = {
     0: "Января",
     1: "Февраля",
     2: "Марта",
@@ -16,7 +16,7 @@ export const getMonthName = (date: Date) => {
     11: "Декабря",
   };
 
-  return monts[date.getMonth() as keyof typeof monts];
+  return months[date.getMonth() as keyof typeof months];
 };
 
 export const getDayMonthFromDate = (date: Date) => {

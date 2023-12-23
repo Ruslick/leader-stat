@@ -1,5 +1,5 @@
 export const enum Paths {
-  Home = "/",
+  Home = "/hackatons",
   Hackatons = "/hackatons",
   Registration = "/registration",
   Login = "/login",

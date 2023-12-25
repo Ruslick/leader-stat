@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { selectHakatons } from "../../store/hackatons/hackatonSelectors";
+import { selectHackatons } from "../../store/hackatons/hackatonSelectors";
 import { useAppSelector } from "../../shared/hooks/store.hooks";
 import { Flex } from "../../shared/ui/_layout/Flex/Flex";
 import { Paper } from "../../shared/ui/_layout/Paper/Paper";
@@ -7,13 +7,13 @@ import { Button } from "../../shared/ui/Button/Button";
 import { getDayMonthFromDate } from "../../shared/utils/date-converters";
 
 export const HackatonAside: FC = () => {
-  const { loading, success, hakatons } = useAppSelector(selectHakatons);
+  const { loading, success, hackatons } = useAppSelector(selectHackatons);
 
   if (loading || !success) {
     return null;
   }
 
-  const { image_url, end_registration } = hakatons[0];
+  const { image_url, end_registration } = hackatons[0];
   return (
     <Flex gap={16}>
       <Paper p={0} w={"400px"}>

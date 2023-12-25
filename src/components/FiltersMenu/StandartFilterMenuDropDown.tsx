@@ -3,19 +3,22 @@ import { DropDownMenu } from "../../shared/ui/DropDownMenu/DropDownMenu";
 import { useAppDispatch } from "../../shared/hooks/store.hooks";
 import { FiltersState, toggleFilter } from "../../store/filters/filtersSlice";
 import { Button } from "../../shared/ui/Button/Button";
+import { useSearchParams } from "react-router-dom";
 
 interface StandartFilterMenuDropDownProps {
   text: string;
   filters: [string, boolean][];
   filterSection: keyof FiltersState;
+  searchParamKey: string;
 }
 
 export const StandartFilterMenuDropDown: FC<StandartFilterMenuDropDownProps> = memo(
-  ({ text, filters, filterSection }) => {
-    const dispatch = useAppDispatch();
+  ({ text, filters, searchParamKey }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     return (
       <DropDownMenu text={text}>
-        {filters.map(([filter, isSelected]) => (
+        {filters.map(([filter, isSelected], i) => (
           <Button
             variant="filter"
             padding="small"
@@ -24,7 +27,9 @@ export const StandartFilterMenuDropDown: FC<StandartFilterMenuDropDownProps> = m
             key={filter}
             active={isSelected}
             onClick={() => {
-              dispatch(toggleFilter({ filterSection, filter }));
+              setSearchParams({
+                [searchParamKey]: String(Boolean(i)),
+              });
             }}
           >
             {filter}

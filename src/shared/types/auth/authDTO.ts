@@ -5,3 +5,4 @@ export interface JwtRefreshDTO {
 }
 
 export type TokensDTO = Jwt;
+

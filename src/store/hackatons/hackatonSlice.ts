@@ -4,20 +4,20 @@ import { ApiError } from "../../shared/types/general";
 import { Hackaton, HackatonsFilter, HackatonsView } from "../../shared/types/hackaton";
 import { createError } from "../../shared/utils/error-factories";
 
-export interface HakatonsState {
+export interface HackatonsState {
   loading: boolean;
   success: boolean;
   error: ApiError | null;
-  hakatons: Hackaton[];
+  hackatons: Hackaton[];
   activeFilter: HackatonsFilter;
   gridView: HackatonsView;
 }
 
-const initialState: HakatonsState = {
+const initialState: HackatonsState = {
   loading: false,
   success: false,
   error: null,
-  hakatons: [],
+  hackatons: [],
   activeFilter: "all",
   gridView: "grid",
 };
@@ -46,7 +46,7 @@ export const hackatonSlice = createSlice({
           ...state,
           loading: false,
           success: true,
-          hakatons: payload,
+          hackatons: payload,
         };
       })
       .addCase(getHackatonsThunk.rejected, (state, { payload }) => {

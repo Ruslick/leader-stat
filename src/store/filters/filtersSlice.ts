@@ -10,6 +10,7 @@ export interface FiltersState {
   formats: {
     [key: string]: boolean;
   };
+  query: string;
 }
 
 const initialState: FiltersState = {
@@ -30,6 +31,7 @@ const initialState: FiltersState = {
     Аналитик: false,
     Дизайнер: false,
   },
+  query: "",
 };
 
 export const filtersSlice = createSlice({

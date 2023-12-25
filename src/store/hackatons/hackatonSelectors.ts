@@ -1,20 +1,20 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "..";
 
-export const selectHakatonSlice = (state: RootState) => state.hackaton;
+export const selectHackatonSlice = (state: RootState) => state.hackaton;
 
-export const selectHakatons = createSelector(
+export const selectHackatons = createSelector(
   [
     (state: RootState) => state.hackaton.loading,
     (state: RootState) => state.hackaton.success,
     (state: RootState) => state.hackaton.error,
-    (state: RootState) => state.hackaton.hakatons,
+    (state: RootState) => state.hackaton.hackatons,
   ],
-  (loading, success, error, hakatons) => ({
+  (loading, success, error, hackatons) => ({
     loading,
     success,
     error,
-    hakatons,
+    hackatons,
   }),
 );
 

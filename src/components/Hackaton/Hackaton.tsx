@@ -1,13 +1,16 @@
-import { FC } from "react";
-import { useAppSelector } from "../../shared/hooks/store.hooks";
-import { selectHakatons } from "../../store/hackatons/hackatonSelectors";
+import { FC, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+import { useAppDispatch, useAppSelector } from "../../shared/hooks/store.hooks";
 import { Flex } from "../../shared/ui/_layout/Flex/Flex";
 import { Text } from "../../shared/ui/Text/Text";
-import { StandartRoles } from "./StandartRoles";
+import { StandartRoles } from "../Hackatons/StandartRoles";
 import { TrackFull } from "../../shared/ui/TrackFull/TrackFull";
 import { Button } from "../../shared/ui/Button/Button";
 import { HeartIcon } from "../../shared/ui/icons/actions/HeartIcon";
 import { EyeIcon } from "../../shared/ui/icons/actions/EyeIcon";
+import { selectHackatons } from "../../store/hackatons/hackatonSelectors";
+import { getHackatonsThunk } from "../../store/hackatons/getHackatonsThunk";
 
 const track = {
   title: "Трек 1 - MOBILE + WEB",
@@ -34,16 +37,22 @@ const track = {
 };
 
 export const Hackaton: FC = () => {
-  const { loading, success, hakatons } = useAppSelector(selectHakatons);
+  const dispatch = useAppDispatch();
+  const params = useParams();
+  useEffect(() => {
+    dispatch(getHackatonsThunk(`?id=${params.id}`));
+  }, []);
+
+  const { loading, success, hackatons } = useAppSelector(selectHackatons);
 
   if (loading || !success) {
     return null;
   }
-  if (!hakatons.length) {
+  if (!hackatons.length) {
     return <div>No hackaton found</div>;
   }
 
-  const { title, description, grand_prize, start, end, is_online } = hakatons[0];
+  const { title, description, grand_prize, start, end, is_online } = hackatons[0];
 
   return (
     <Flex gap={16}>

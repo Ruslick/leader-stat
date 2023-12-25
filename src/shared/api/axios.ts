@@ -1,10 +1,10 @@
 import axios from "axios";
-import { getAuthLocalStorage } from "../utils/auth-controller";
+import { getAuthLocalStorage, removeAuthLocalStorage } from "../utils/auth-controller";
 import { refreshToken } from "../utils/refresh-token";
 
-export const api = axios.create();
+export const protectedRequest = axios.create();
 
-api.interceptors.request.use(async (config) => {
+protectedRequest.interceptors.request.use(async (config) => {
   const { access } = getAuthLocalStorage();
   if (access) {
     config.headers.setAuthorization(`Bearer ${access}`);
@@ -12,7 +12,7 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
-api.interceptors.response.use(
+protectedRequest.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
@@ -22,8 +22,9 @@ api.interceptors.response.use(
       const access = await refreshToken();
 
       originalRequest.headers.setAuthorization(`Bearer ${access}`);
-      return api(originalRequest);
+      return axios(originalRequest);
     }
+    removeAuthLocalStorage();
     return Promise.reject(error);
   },
 );

@@ -16,8 +16,13 @@ export const FiltersMenu: FC = () => {
     <Container pr={10} w={"245px"}>
       <Flex gap={8}>
         <Flex>
-          <StandartFilterMenuDropDown filterSection="cities" text="Города" filters={cities} />
-          <StandartFilterMenuDropDown filterSection="formats" text="Формат" filters={formats} />
+          <StandartFilterMenuDropDown filterSection="cities" text="Города" filters={cities} searchParamKey="" />
+          <StandartFilterMenuDropDown
+            filterSection="formats"
+            text="Формат"
+            filters={formats}
+            searchParamKey="is_online"
+          />
 
           {/* TODO */}
           <DropDownMenu text="Дата">

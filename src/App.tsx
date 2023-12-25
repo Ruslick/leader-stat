@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { router } from "./pages";
+import { router } from "./routes";
 import "./shared/styles/index.scss";
 
 import { useInitTheme } from "./shared/hooks/themes/useInitTheme";

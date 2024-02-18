@@ -1,0 +1,12 @@
+.root {
+  &[data-variant="default"] {
+    background: var(--mantine-color-violet-8);
+    color: var(--mantine-color-white);
+    border: none;
+  }
+
+  &[data-active="true"] {
+    background-color: var(--mantine-color-red-7);
+    color: var(--mantine-color-white);
+  }
+}

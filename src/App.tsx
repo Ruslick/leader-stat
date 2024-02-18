@@ -1,18 +1,16 @@
+import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./store";
-import { router } from "./pages";
-import "./shared/styles/index.scss";
+import { router } from "./routes";
+import { Mantine } from "./shared/styles/theme";
+import "./shared/styles/index.css";
 
-import { useInitTheme } from "./shared/hooks/themes/useInitTheme";
-
-function App() {
-  useInitTheme();
+const App = () => {
   return (
-    <Provider store={store}>
+    <Mantine>
       <RouterProvider router={router} />
-    </Provider>
+      <Notifications />
+    </Mantine>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,23 @@
+.root {
+  &[data-variant="default"] {
+    background: var(--mantine-color-violet-8);
+    color: var(--mantine-color-white);
+    border: none;
+  }
+  &[data-variant="transparent"] {
+    background-color: transparent;
+    color: var(--mantine-color-white);
+  }
+
+  &[data-variant="light"] {
+    background-color: var(--mantine-color-white);
+    border-radius: var(--mantine-radius-lg);
+    color: var(--mantine-color-violet-9);
+    border: 1px solid var(--mantine-color-violet-8);
+  }
+
+  &[data-active="true"] {
+    background-color: var(--mantine-color-red-7);
+    color: var(--mantine-color-white);
+  }
+}

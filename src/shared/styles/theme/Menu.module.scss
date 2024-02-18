@@ -1,0 +1,12 @@
+.item {
+  &[data-variant="accent"] {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+  color: var(--color-text);
+  background-color: transparent;
+  &:hover {
+    color: var(--color-black);
+    background-color: var(--color-text);
+  }
+}

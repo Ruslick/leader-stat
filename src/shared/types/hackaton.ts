@@ -25,6 +25,8 @@ export interface HackatonDTO extends HackatonBase {
   end: string;
 }
 
-export type HackatonsFilter = "all" | "forme" | "participate" | "hidden" | "favorite";
+export type FiltersNames = "id" | "is_online" | "location" | "page" | "page_size" | "title";
 
-export type HackatonsView = "list" | "grid";
+export interface LocationsDTO {
+  result: string[];
+}

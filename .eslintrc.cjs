@@ -22,5 +22,6 @@ module.exports = {
     "arrow-body-style": "off",
     "consistent-return": "off",
     camelcase: "off",
+    "no-underscore-dangle": "off"
   },
 };

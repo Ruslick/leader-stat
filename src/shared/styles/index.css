@@ -1,0 +1,19 @@
+body {
+  background: var(--mantine-color-violet-8);
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --color-bg: #230576;
+  --color-normal: #492794;
+  --color-focused: #602d87;
+  --color-head: #efeafa;
+  --color-text: #e4daed;
+  --color-line: #dfd2e67c;
+  --color-accent: #ff5026;
+  --color-accent-text: #f3f2f4;
+  --color-black: #000;
+}

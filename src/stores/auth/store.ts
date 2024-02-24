@@ -22,7 +22,7 @@ class Auth {
   // eslint-disable-next-line class-methods-use-this
   login = async (values: SignInValues) => {
     try {
-      api.post<Jwt>(API.TOKEN, values).then((response) => {
+      await api.post<Jwt>(API.TOKEN, values).then((response) => {
         localStorage.setItem("access", response.data.access);
         localStorage.setItem("refresh", response.data.refresh);
       });
